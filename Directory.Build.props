@@ -1,0 +1,146 @@
+<Project>
+
+  <!-- Home Directory of this Git repository (Root) and its derived directories -->
+  <PropertyGroup Label="Targets">
+    <HomePlatformSpecific>$([System.IO.Path]::GetDirectoryName('$(MSBuildThisFileDirectory)'))</HomePlatformSpecific>
+    <Home>$(HomePlatformSpecific.Replace('\', '/'))</Home>
+    <BuildDir>$(Home)/.build</BuildDir>
+    <SourceDir>$(Home)/src</SourceDir>
+    <TestDir>$(Home)/test</TestDir>
+    <ToolDir>$(Home)/tool</ToolDir>
+    <ProjectDir>$(MSBuildProjectDirectory.Replace('\', '/'))</ProjectDir>
+  </PropertyGroup>
+
+  <!-- Project Type, detected from its project name and location -->
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)')) And !$(MSBuildProjectName.EndsWith('.Tests'))">
+    <ProjectType>Source</ProjectType>
+  </PropertyGroup>
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)')) And $(MSBuildProjectName.EndsWith('.Tests'))">
+    <ProjectType>Test</ProjectType>
+  </PropertyGroup>
+ <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(TestDir)'))">
+    <ProjectType>Test</ProjectType>
+  </PropertyGroup>
+ <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(ToolDir)'))">
+    <ProjectType>Tool</ProjectType>
+  </PropertyGroup>
+
+  <!-- Build Targets -->
+  <PropertyGroup Label="Targets">
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- C# Language and related feature flags -->
+  <PropertyGroup Label="Language">
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- QA Build Cops to find out the potential code defects -->
+  <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Source'">
+    <!-- Runtime/Core Project -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <!--TODO: Ignore these CA warnings (for documentation styles) before public interfaces are stable. -->
+    <NoWarn>CS1591;SA1600;SA1602;SA1633</NoWarn>
+  </PropertyGroup>
+  <ItemGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Source'">
+    <PackageReference Include="StyleCop.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <AdditionalFiles Include="$(BuildDir)/stylecop.json" />    
+    <PackageReference Include="Microsoft.CodeAnalysis.Metrics" />
+  </ItemGroup>
+  <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Test'">
+    <!-- Unit Test Project -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Tool'">
+    <!-- Tool Project -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-minimal</AnalysisLevel>
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+
+  <!-- Prebuilt Items (All projects) -->
+  <ItemGroup>
+    <PackageReference Include="Throw" />
+
+    <Using Include="System.Diagnostics.CodeAnalysis" />
+    <Using Include="System.Globalization" />
+    <Using Include="Throw" />
+  </ItemGroup>
+
+  <!-- Prebuilt Items (Test Projects Only) -->
+  <ItemGroup Label="TestAssets" Condition="'$(ProjectType)' == 'Test'">
+    <!-- Test Infrastrcuture -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="coverlet.collector">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.msbuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReportGenerator" />
+    <PackageReference Include="xunit.analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Moq.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <!-- Test Utility -->
+    <PackageReference Include="xunit" />
+    <PackageReference Include="Xunit.Combinatorial" />
+    <PackageReference Include="Moq" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="NodaTime" />
+    <PackageReference Include="NodaTime.Testing" />
+    <!-- Implicit Using -->
+    <Using Include="Xunit" />
+    <Using Include="FluentAssertions" />
+    <Using Include="Moq" />
+  </ItemGroup>
+
+  <!-- Nuget Package Metadata & Assembly Info -->
+  <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Source'">
+    <IsPackable>false</IsPackable>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <!-- Versioning -->
+    <Version>0.1.0</Version>
+    <VersionPrefix></VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
+    <!-- Project Information -->
+    <Authors>@nemossi</Authors>
+    <Company></Company>
+    <PackageProjectUrl>https://github.com/zilch-ai/zilch</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zilch-ai/zilch</RepositoryUrl>
+    <!-- Source Likning & Documentation -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- License Information -->
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+</Project>
