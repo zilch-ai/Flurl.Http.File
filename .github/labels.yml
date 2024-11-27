@@ -1,4 +1,5 @@
-# See in https://github.com/marketplace/actions/github-labeler?version=v5.1.0
+# Labels will be automatically configured using this data file and related workflow.
+# See in GitHub action: [github-labeler](https://github.com/marketplace/actions/github-labeler?version=v5.1.0)
 - name: "duplicate"
   color: "cfd3d7"
   description: "This issue or pull request already exists"
