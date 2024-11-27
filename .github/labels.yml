@@ -21,6 +21,6 @@
 - name: "Severity/Refactor"
   color: "c2e0c6"
   description: "Refactoring & code improvement"
-- name: "wontfix_it"
+- name: "wontfix"
   color: "ffffff"
   description: "This will not be worked on"
