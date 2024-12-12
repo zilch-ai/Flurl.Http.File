@@ -45,7 +45,7 @@ public static class HttpRequestTokens
         .Then(result => result.ToString() ?? string.Empty);
 
     public static readonly Parser<string> Version =
-        Terms.Text(@"HTTP/", caseInsensitive: false)
+        Terms.Text(@"HTTP/", caseInsensitive: true)
         .SkipAnd
         (
             OneOf

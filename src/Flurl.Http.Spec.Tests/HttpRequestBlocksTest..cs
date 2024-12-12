@@ -19,7 +19,7 @@ public partial class HttpRequestBlocksTest
     }
 
     [Fact]
-    public async Task TestRequest()
+    public void TestRequest()
     {
         var content =
 @"
@@ -35,11 +35,5 @@ body-test-data
         actual!.Headers.Count.Should().Be(1);
         actual!.Headers["Content-Type"].Should().Be("text/plain");
         actual!.Body.Should().Be("body-test-data");
-    }
-
-    [Fact]
-    public async Task TestRequests()
-    {
-
     }
 }
