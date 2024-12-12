@@ -1,21 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <!-- Codegen for .HTTP file parser defined in httpreq.g4 -->
-  <ItemGroup>
-    <Antlr4 Include="http\HttpRequestFile.g4">
-      <Listener>true</Listener>
-      <Visitor>true</Visitor>
-      <GAtn>true</GAtn>
-      <Package>AntlrCodeGen</Package>
-      <Error>true</Error>
-    </Antlr4>
-    <PackageReference Include="Antlr4.Runtime.Standard" />
-    <PackageReference Include="Antlr4BuildTasks" PrivateAssets="all" />
-  </ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Fluid.Core" />
     <PackageReference Include="Flurl.Http" />
-    <PackageReference Include="Scriban" />
+    <PackageReference Include="Parlot" />
   </ItemGroup>
 
 </Project>

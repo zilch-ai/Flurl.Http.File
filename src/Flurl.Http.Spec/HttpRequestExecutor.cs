@@ -1,39 +1,45 @@
-﻿namespace Flurl.Http.Spec;
+namespace Flurl.Http.Spec;
 
-using Scriban;
-using HttpRequestContext = System.Collections.Immutable.ImmutableDictionary<string, string>;
 using HttpRequestHeaders = System.Collections.Immutable.ImmutableDictionary<string, string>;
 
-public class HttpRequestExecutor(string verb, string endpoint, HttpRequestContext? context = null)
+public class HttpRequestExecutor(string verb, string endpoint)
 {
-    public HttpRequestContext Context { get; } = context ?? HttpRequestContext.Empty;
-
     public string Verb { get; } = verb;
 
     public string Endpoint { get; } = endpoint;
 
-    public string Version { get; init; } = "HTTP/1.1";
+    public string Version { get; init; } = "1.1";
 
     public HttpRequestHeaders Headers { get; init; } = HttpRequestHeaders.Empty;
 
-    public string? Body { get; init; }
+    public string Body { get; init; } = string.Empty;
 
     public Action<IFlurlRequest>? Configurator { get; set; }
 
-    public async Task<IFlurlResponse> ExecuteAsync()
+    public async Task<IFlurlResponse> ExecuteAsync(HttpRequestContext? context = null)
     {
-        // String template replacement in the url, headers & body
+        // Render template variables in the url, headers & body
         var verb = this.Verb;
-        var url = await Template.Parse(this.Endpoint).RenderAsync(this.Context).ConfigureAwait(false);
-        var version = this.Version[5..];
-        var headers = this.Headers.ToDictionary(pair => pair.Key, pair => Template.Parse(pair.Value).Render(this.Context));
-        var body = await Template.Parse(this.Body).RenderAsync(this.Context).ConfigureAwait(false);
+        var url = context != null ? await context.RenderAsync(this.Endpoint).ConfigureAwait(false) : this.Endpoint;
+        var version = this.Version;
+        var headers = this.Headers.Aggregate
+        (
+            new Dictionary<string, string>(),
+            (map, kvp) =>
+            {
+                var key = context != null ? context.Render(kvp.Key) : kvp.Key;
+                var value = context != null ? context.Render(kvp.Value) : kvp.Value;
+                map.Add(key, value);
+                return map;
+            }
+        );
+        var body = context != null ? await context.RenderAsync(this.Body).ConfigureAwait(false) : this.Body;
 
         // Create a new FlurlRequest instance with customized configuration
         var request = url
             .WithSettings(settings =>
             {
-                settings.HttpVersion = version;
+                settings.HttpVersion = this.Version;
                 settings.Timeout = TimeSpan.FromSeconds(10);
                 settings.AllowedHttpStatusRange = "*";
                 settings.Redirects.Enabled = true;

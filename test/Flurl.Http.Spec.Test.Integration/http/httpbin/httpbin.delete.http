@@ -1,0 +1,6 @@
+DELETE https://httpbin.org/delete?arg=argv HTTP/1.1
+Content-Type: text/plain
+Test-Header-Key1: test-header-value1
+Test-Header-Key2: test-header-value2
+
+body-test-data
