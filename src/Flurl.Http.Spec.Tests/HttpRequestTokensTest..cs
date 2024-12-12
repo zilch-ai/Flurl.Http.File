@@ -95,6 +95,7 @@ public partial class HttpRequestTokensTest
     [Theory]
     [InlineData("HTTP/1.0", "1.0")]
     [InlineData("HTTP/1.1", "1.1")]
+    [InlineData("http/1.1", "1.1")]
     [InlineData("HTTP/2", "2.0")]
     [InlineData("HTTP/3", "3.0")]
     public void TestVersion(string content, string expected)
@@ -104,8 +105,10 @@ public partial class HttpRequestTokensTest
     }
 
     [Theory]
-    [InlineData("http/1.0")]
     [InlineData("")]
+    [InlineData("http/")]
+    [InlineData("http/abc")]
+    [InlineData("abc")]
     public void TestVersionMismatched(string content)
     {
         var actual = HttpRequestTokens.Version.Parse(content);
