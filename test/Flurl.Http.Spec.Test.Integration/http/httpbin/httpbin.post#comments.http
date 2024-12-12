@@ -1,0 +1,20 @@
+#test comment 1
+@var1 = argv
+//test comment 2
+@var2 = data
+# test comment 3
+@var3 = value1
+// test comment 4
+@var4 = value2
+@var5 = header-{{var4}}
+@var6 = test-{{var5}}
+
+# test comment 5
+POST https://httpbin.org/post?arg={{var1}} HTTP/1.1
+# test comment 6
+Content-Type: text/plain
+Test-Header-Key1: test-header-{{var3}}
+# test comment 7
+Test-Header-Key2: {{var6}}
+
+body-test-{{var2}}

@@ -1,0 +1,16 @@
+POST https://httpbin.org/post?arg=argv HTTP/1.1
+Content-Type: multipart/form-data; boundary=MIME_BOUNDARY
+Test-Header-Key1: test-header-value1
+Test-Header-Key2: test-header-value2
+ 
+--MIME_BOUNDARY
+content-disposition: form-data;name="testfile1.txt";filename="some.txt"
+content-type: application/octet-stream
+
+testfile1 content here
+--MIME_BOUNDARY
+content-disposition: form-data;name="testfile2.txt";filename="some.txt"
+content-type: application/octet-stream
+
+testfile2 content here
+--MIME_BOUNDARY--

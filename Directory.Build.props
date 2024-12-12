@@ -27,7 +27,7 @@
 
   <!-- Build Targets -->
   <PropertyGroup Label="Targets">
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <!-- C# Language and related feature flags -->
@@ -45,8 +45,14 @@
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest-all</AnalysisLevel>
-    <!--TODO: Ignore these CA warnings (for documentation styles) before public interfaces are stable. -->
-    <NoWarn>CS1591;SA1600;SA1602;SA1633</NoWarn>
+    <NoWarn>
+      <!-- Keyword order rules conflicts in IDE0036 & SA1206/related to public/static/required -->
+      IDE0036;
+      <!--Ignore these SA warnings for bracket spacing (to support bracket/parameter alignment). -->
+      SA1009;SA1110;SA1111;
+      <!--TODO: Ignore these CA/SA warnings (for documentation styles) before public interfaces are stable. -->
+      CS1591;SA1600;SA1601;SA1602;SA1633;
+    </NoWarn>
   </PropertyGroup>
   <ItemGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Source'">
     <PackageReference Include="StyleCop.Analyzers">

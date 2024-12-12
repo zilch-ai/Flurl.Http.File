@@ -1,0 +1,13 @@
+@var1 = argv
+@var2 = data
+@var3 = value1
+@var4 = value2
+@var5 = header-{{var4}}
+@var6 = test-{{var5}}
+
+POST https://httpbin.org/post?arg={{var1}} HTTP/1.1
+Content-Type: text/plain
+Test-Header-Key1: test-header-{{var3}}
+Test-Header-Key2: {{var6}}
+
+body-test-{{var2}}

@@ -1,9 +1,6 @@
-﻿namespace Flurl.Http.Spec;
+namespace Flurl.Http.Spec;
 
-using Antlr4.Runtime;
-using AntlrCodeGen;
-
-public class HttpRequestFile : IHttpRequestSpec
+public partial class HttpRequestFile : IHttpRequestSpec
 {
     private HttpRequestExecutors executors = new();
 
@@ -13,29 +10,25 @@ public class HttpRequestFile : IHttpRequestSpec
     /// <inheritdoc/>
     public string Spec { get; private set; } = string.Empty;
 
-    /// <inheritdoc/>
-    public HttpRequestExecutor this[int index] => this.executors[index];
+    public HttpRequestContext Context { get; private set; } = new();
 
     /// <inheritdoc/>
-    public HttpRequestExecutor this[string key] => string.IsNullOrEmpty(key) ? this.executors[0] : this.executors[key];
+    public HttpRequestExecutor this[int index]
+        => this.executors[index];
+
+    /// <inheritdoc/>
+    public HttpRequestExecutor this[string key]
+        => string.IsNullOrEmpty(key) ? this.executors[0] : this.executors[key];
 
     public static HttpRequestFile LoadFromString(string content)
     {
-        // Initialize ANTLR4 lexer and parser
-        var lexer = new HttpRequestFileLexer(new AntlrInputStream(content));
-        var tokens = new CommonTokenStream(lexer);
-        tokens.Fill();
-        var parser = new HttpRequestFileParser(tokens) { ErrorHandler = new BailErrorStrategy() };
-        var tree = parser.file();
+        var (context, executors) = HttpRequestBlocks.All.Parse(content);
 
-        // Walk through the AST (parsing result) in visitor pattern and build the http request executors accordingly
-        var builder = HttpRequestExecutors.CreateBuilder();
-        var visitor = new HttpRequestFileVisitor(builder);
-        var executors = visitor.Visit(tree).Build();
-        return new HttpRequestFile
+        return new()
         {
             Spec = content,
-            executors = executors,
+            Context = context,
+            executors = executors!,
         };
     }
 

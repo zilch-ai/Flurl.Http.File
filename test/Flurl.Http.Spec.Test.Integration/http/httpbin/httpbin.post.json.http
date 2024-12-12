@@ -1,0 +1,9 @@
+POST https://httpbin.org/post?arg=argv HTTP/1.1
+Content-Type: application/json
+Test-Header-Key1: test-header-value1
+Test-Header-Key2: test-header-value2
+
+{
+    "TestJsonKey1": "TestJsonValue1",
+    "TestJsonKey2": "TestJsonValue2"
+}

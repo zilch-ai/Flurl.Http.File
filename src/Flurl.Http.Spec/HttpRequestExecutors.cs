@@ -1,17 +1,14 @@
-﻿namespace Flurl.Http.Spec;
+namespace Flurl.Http.Spec;
 
 using System.Collections.Immutable;
-using HttpRequestContext = System.Collections.Immutable.ImmutableDictionary<string, string>;
 using HttpRequestExecutorList = System.Collections.Immutable.ImmutableList<HttpRequestExecutor>;
 using HttpRequestExecutorIndexes = System.Collections.Immutable.ImmutableDictionary<string, int>;
 
-public class HttpRequestExecutors(HttpRequestContext? context = null, HttpRequestExecutorList? list = null, HttpRequestExecutorIndexes? indexes = null)
+public class HttpRequestExecutors(HttpRequestExecutorList? list = null, HttpRequestExecutorIndexes? indexes = null)
 {
     private readonly HttpRequestExecutorList list = list ?? HttpRequestExecutorList.Empty;
 
     private readonly HttpRequestExecutorIndexes indexes = indexes ?? HttpRequestExecutorIndexes.Empty;
-
-    public HttpRequestContext Context => context ?? HttpRequestContext.Empty;
 
     /// <summary>
     /// Gets the <see cref="HttpRequestExecutor"/> at the specified index.
@@ -36,24 +33,15 @@ public class HttpRequestExecutors(HttpRequestContext? context = null, HttpReques
     [SuppressMessage("Design", "CA1034:Nested types should not be visible", Justification = "Nested public builder class for the immutable collection.")]
     public class Builder()
     {
-        private readonly Dictionary<string, string> context = new();
         private readonly List<HttpRequestExecutor> list = new();
         private readonly Dictionary<string, int> indexes = new();
 
-        public Builder AddVariable(string id, string value)
+        public Builder AddExecutor(HttpRequestExecutor executor, string? key = null)
         {
-            this.context[id.ThrowIfNull()] = value;
-            return this;
-        }
-
-        public Builder AddExecutor(Func<IReadOnlyDictionary<string, string>, HttpRequestExecutor> builder, string? key = null)
-        {
-            _ = builder.ThrowIfNull();
             _ = key?.Throw(paramName => throw new ArgumentOutOfRangeException(paramName, "The key already exists in the indexes."))
                 .IfTrue(this.indexes.ContainsKey);
 
             var index = this.list.Count;
-            var executor = builder.Invoke(this.context);
             this.list.Add(executor);
             if (key != null)
             {
@@ -63,9 +51,10 @@ public class HttpRequestExecutors(HttpRequestContext? context = null, HttpReques
             return this;
         }
 
-        public HttpRequestExecutors Build() => new(
-            this.context.ToImmutableDictionary(),
+        public HttpRequestExecutors Build() => new
+        (
             this.list.ToImmutableList(),
-            this.indexes.ToImmutableDictionary());
+            this.indexes.ToImmutableDictionary()
+        );
     }
 }
