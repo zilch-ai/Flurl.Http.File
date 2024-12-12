@@ -36,30 +36,28 @@ Content-Type: application/json
 You can load and execute it with the library:
 
 ```csharp
-var response = await @"requests.http"
-    .LoadAsHttpRequestSpec()
-    .ExecuteAsync("Get User Info", new { token = "..." });
+var spec = await HttpRequestFile.LoadFromFile(@"requests.http");
+var executor = spec[0];
+var response = await executor.ExecuteAsync(spec.Context);
 ```
 
 ## Roadmap
 
-- v0.1.0
-  - [ ] Setup github assets & project framing
-  - [ ] Simplest HTTP GET request parsing & execution with code framing
-  - [ ] Robust & flexible syntax parser for .HTTP files, supports all HTTP methods, headers, and body
+- v0.1
+  - [x] Setup github assets & project framing
+  - [x] Simplest HTTP GET request parsing & execution with code framing
+  - [x] Robust & flexible syntax parser for .HTTP files, supports all HTTP methods, headers, and body
 
-- v0.1.1
-  - [ ] Inline comments
-  - [ ] Multiple requests combined in a single file accessed by named keys and indexes
+- v0.2
+  - [x] Inline comments
+  - [x] Multiple requests combined in a single file accessed by named keys and indexes
 
-- v0.1.2
-  - [ ] Predefined inline variables (global) as execution context
-  - [ ] Variables overriding in execution context
+- v0.3
+  - [x] Predefined inline variables (global) as execution context
+  - [x] Recursive variable references in execution context
 
-- v0.1.3
-  - [ ] System environment variables as execution context
-  - [ ] .env configuration file as execution context
-  - [ ] Flatten environment configuration file
+- TODO
+  - [ ] System environment variables
 
 More features and improvements are planned. Please see our [BACKLOG.md](BACKLOG.md) for more details.
 
