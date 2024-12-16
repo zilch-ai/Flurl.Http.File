@@ -137,7 +137,7 @@
     <VersionSuffix>alpha</VersionSuffix>
     <!-- Project Information -->
     <Authors>@nemossi</Authors>
-    <Company></Company>
+    <Company>Zilch.AI</Company>
     <PackageProjectUrl>https://github.com/zilch-ai/zilch</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zilch-ai/zilch</RepositoryUrl>
     <!-- Source Likning & Documentation -->
