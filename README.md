@@ -2,9 +2,29 @@
 
 `Flurl.Http.Spec` is a lightweight C# library for parsing and executing `.http` or `.rest` files with HTTP request definitions. The library is designed to integrate seamlessly with the Flurl.Http ecosystem and provides an easy-to-use programmatic interface.
 
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+
+Flurl.Http.Spec is a lightweight C# library designed for parsing and executing `.http` or `.rest` files that define HTTP requests. It integrates seamlessly with the Flurl.Http ecosystem & Web devevelopment tools with authoring `.http` or `.rest` files, providing an easy-to-use programmatic interface for developers to execute HTTP requests directly from these specification files. As part of Zilch.AI projects, LLM Agent will leverage this library to define and execute HTTP requests in a human-readable format, including web search agent and API function calls.
+
 ## Features
 
-TODO
+`Flurl.Http.Spec` provides a set of core features designed to make working with HTTP request definitions simple and efficient.
+
+In the current release, the main features include:
+- **Parse `.http` and `.rest` Files**: Easily parse `.http` or `.rest` files containing HTTP request definitions.
+- **Flurl.Http Integration**: Seamless integration with the Flurl.Http ecosystem to execute HTTP requests directly.
+- **Flexible HTTP Request Definitions**: Define HTTP methods, endpoint, headers & body in flexible syntax.
+- **Programmatic Interface**: Interact with parsed requests using a programmatic interface in C#.
+- **Asynchronous Request Execution**: Support for async execution of HTTP requests, ensuring non-blocking operations.
+  
+For a detailed list of features & backlog, please refer to the [FEATURES](FEATURES.md). And if you want to know more about the latest release and roadmap, please refer to the [RELEASE](RELEASE.md). 
 
 ## Installation
 
@@ -37,33 +57,12 @@ You can load and execute it with the library:
 
 ```csharp
 var spec = await HttpRequestFile.LoadFromFile(@"requests.http");
-var executor = spec[0];
-var response = await executor.ExecuteAsync(spec.Context);
+var response = await spec.ExecuteAsync();
 ```
-
-## Roadmap
-
-- v0.1
-  - [x] Setup github assets & project framing
-  - [x] Simplest HTTP GET request parsing & execution with code framing
-  - [x] Robust & flexible syntax parser for .HTTP files, supports all HTTP methods, headers, and body
-
-- v0.2
-  - [x] Inline comments
-  - [x] Multiple requests combined in a single file accessed by named keys and indexes
-
-- v0.3
-  - [x] Predefined inline variables (global) as execution context
-  - [x] Recursive variable references in execution context
-
-- TODO
-  - [ ] System environment variables
-
-More features and improvements are planned. Please see our [BACKLOG.md](BACKLOG.md) for more details.
 
 ## Contributing
 
-Contributions are welcome! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+Contributions are welcome! Please see our [CONTRIBUTING](CONTRIBUTING.md) for more details.
 
 ## License
 

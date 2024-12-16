@@ -46,7 +46,7 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest-all</AnalysisLevel>
     <NoWarn>
-      <!-- Keyword order rules conflicts in IDE0036 & SA1206/related to public/static/required -->
+      <!-- Ignore these IDE warnings for keyword order rules conflicts between IDE0036 and SA1206. -->
       IDE0036;
       <!--Ignore these SA warnings for bracket spacing (to support bracket/parameter alignment). -->
       SA1009;SA1110;SA1111;
