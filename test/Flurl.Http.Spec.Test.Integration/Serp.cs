@@ -1,9 +1,5 @@
 namespace Flurl.Http.Spec.Test.Integration;
 
-using static System.Net.Mime.MediaTypeNames;
-using System.Runtime.InteropServices;
-using System.Text.Unicode;
-
 public class Serp
 {
     [Theory]
