@@ -38,7 +38,7 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
     - [x] HTTP Request Body
     - [x] Variable Definition & References
     - [x] Inline Comments
-    - [x] Request Separators with Identifier
+    - [x] Request Separators with Tag
   - [ ] cURL request format
   - [ ] Postman collection file (.postman)
 
@@ -55,23 +55,27 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
 - User Variables
   - [x] User variable references in HTTP endpoint, header values & body
   - [x] Recursive variable references: nested variables referencing in variable definitions
-  - [ ] Liquid Expression
+  - [x] User variables overwriting (external context per execution)
 
-- System Variables
-  - [ ] Dynamic variables
-  - [ ] System environment variables
-  - [ ] Date/Time expression
+- Environment Variables
+  - [ ] Environment Variables: System Environment
+  - [ ] Environment Variables: .env file
+  - [ ] Secret Variables: Docker secrets
+  - [ ] Secret Variables: Azure Key Vault
+  - [ ] Secret Variables: User Secrets (settings, local development environment only)
+
+- Command Variables
   - [ ] GUID generator
   - [ ] Random number generator
-
-- Secret Variables
-  - [ ] Docker secrets
-  - [ ] Azure Key Vault
-  - [ ] User Secrets (in development environment only)
+  - [ ] Date/Time expression
 
 - Workflow Variables
   - [ ] Output Cookie Variables in Api Workflow
   - [ ] Output Json Variables in Api Workflow
+
+- Liquid Expression
+  - [ ] Math expression (unoffical)
+  - [ ] Conditional & Logical expression (unoffical)
 
 ## Authentication & Authorization
 
@@ -105,10 +109,12 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
     - [x] Labels Synchorization Workflow
     - [ ] Milestone Synchorization Workflow
   - Github Badges
-    - [ ] Build Status
-    - [ ] Test Status, Coverage & Reports
-    - [ ] Nuget Release Version & Downloads
-    - [ ] Stars & Forks Trending
+    - [x] Nuget Version & Downloads
+    - [x] Build Status
+    - [x] Code Coverage & Reports
+    - [x] Programming Languages
+    - [x] License
+    - [ ] Trending of Stars, Forks on Github
 
 - Tests
   - Unit Tests
