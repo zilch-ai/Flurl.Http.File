@@ -59,8 +59,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <AdditionalFiles Include="$(BuildDir)/stylecop.json" />    
-    <PackageReference Include="Microsoft.CodeAnalysis.Metrics" />
+    <AdditionalFiles Include="$(BuildDir)/stylecop.json" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Metrics">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>    
   </ItemGroup>
   <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Test'">
     <!-- Unit Test Project -->
