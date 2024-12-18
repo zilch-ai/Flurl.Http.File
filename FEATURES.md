@@ -33,7 +33,7 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
     - [x] HTTP Verbs: GET, POST, PUT, PATCH, DELETE
     - [ ] HTTP Verbs: HEAD, OPTIONS, TRACE, CONNECT
     - [x] HTTP Endpoint: Absolute URI with Query Parameters
-    - [ ] HTTP Endpoint: Relative Path with Query Parameters
+    - [ ] HTTP Endpoint: Relative Path with Query Parameters (unofficial syntax)
     - [x] HTTP Headers
     - [x] HTTP Request Body
     - [x] Variable Definition & References
@@ -86,33 +86,50 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
 ## Quality & Engineering System
 
 - Documentation
-  - [ ] README
+  - [x] README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT
+  - [x] Release Notes, Change Log, Features Backlog & Roadmap 
   - [ ] Tutorials & Guides
   - [ ] API Reference
   - [ ] Examples & Use Cases
   - [ ] Playgound & Interactive Demo
 
 - Github Integration
-  - [x] Github Onboarding: Permission, Boards, Labels & Milestones, Issue Templates, PR Template... 
-  - [x] CI/Gated Pipeline via Github Workflow
-  - [x] CD/Release Pipeline via Github Workflow
-  - [ ] Labeling & Milestone Synchorization Workflow
+  - Github Onboarding
+    - [x] Permission
+    - [x] Boards
+    - [x] Issues: Labels, Milestones & Issue Templates
+    - [x] PR Template
+  - Gitbub Actions: CI/CD, Code Analysis, Code Review, Code Quality, Code Security...
+    - [x] CI/Gated Pipeline via Github Workflow
+    - [x] CD/Release Pipeline via Github Workflow
+    - [x] Labels Synchorization Workflow
+    - [ ] Milestone Synchorization Workflow
+  - Github Badges
+    - [ ] Build Status
+    - [ ] Test Status, Coverage & Reports
+    - [ ] Nuget Release Version & Downloads
+    - [ ] Stars & Forks Trending
 
 - Tests
-  - [x] Unit Tests Coverage & Report
+  - Unit Tests
+    - [x] Gatecd Tests
+    - [ ] Test Coverage
+    - [ ] Test Report
   - Integration Tests with Project Reference (Pre-Release)
-    - [x] HttpBin Tests for Functionality & Compatibility
-    - [x] SERP Tests for Real World Scenarios
+    - [ ] Smoke Tests before Integration Tests (Mock Tests for CI/CD Efficiency)
+    - [x] HttpBin Tests for Functionality & Compatibility (Remote)
+    - [ ] HttpBin Tests for Functionality & Compatibility (Docker)
+    - [ ] SERP Tests for Real World Scenarios
   - [ ] Integration Tests with Package References (Post-Release)
-  - [ ] Smoke Tests before Integration Tests (Pre-Release, Mock Tests for CI/CD Efficiency)
 
 - Build Cops
   - [x] Roslyn Code Analysis
   - [x] Style Cops Analysis
   - [x] xUnit & Moq Analysis
-  - [ ] Code Complexity Metrics
+  - [x] Code Complexity Metrics
 
 - Performance
+  - [x] Fluid Template Caching
   - [ ] Benchmarking & Profiling
   - [ ] Stability & Reliability (Multithreading)
   - [ ] Hotspot Analysis & Optimization (Slowness)

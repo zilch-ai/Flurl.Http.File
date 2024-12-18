@@ -35,8 +35,8 @@ public class HttpBin
     public async Task TestHttpGet(string file, string expected)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -58,8 +58,8 @@ public class HttpBin
     public async Task TestHttpGetWithHeaders(string file)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -87,8 +87,8 @@ public class HttpBin
     public async Task TestHttpPost(string file)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -112,8 +112,8 @@ public class HttpBin
     public async Task TestHttpPostData(string file)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -139,8 +139,8 @@ public class HttpBin
     public async Task TestHttpPostJson(string file)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -171,8 +171,8 @@ public class HttpBin
     public async Task TestHttpPostForm(string file)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -199,8 +199,8 @@ public class HttpBin
     public async Task TestHttpPostFiles(string file)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -230,7 +230,7 @@ public class HttpBin
         // TODO: Refactor detailed design to manage template context
         var content = File.ReadAllText(file);
         var executors = HttpRequestFile.LoadFromString(content);
-        var response = await executors[0]!.ExecuteAsync(executors.Context);
+        var response = await executors.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;
@@ -262,8 +262,8 @@ public class HttpBin
     public async Task TestHttpOthers(string file, string verb)
     {
         var content = File.ReadAllText(file);
-        var executor = HttpRequestFile.LoadFromString(content)[0];
-        var response = await executor!.ExecuteAsync();
+        var spec = HttpRequestFile.LoadFromString(content);
+        var response = await spec.ExecuteAsync();
 
         // Verify Http Request
         var request = response.ResponseMessage.RequestMessage!;

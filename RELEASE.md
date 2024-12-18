@@ -5,11 +5,13 @@ The release notes provide a summary of the changes in each version of the Flurl.
 ## vNext (Boron, v0.2.x)
 
 ### New Features
-- [ ] Multiple requests combined in a single .http file accessed by named keys and indexes
-- [ ] README.md file with features (including backlog) and release notes (including roadmap)
+- [x] Support multiple requests combined within a single .http file accessed by named keys
+- [x] Support dynamic variables in execution context with overwriting predefined static variables
 
 ### Enhancements
-N/A
+- [x] Support Fluid template caching (during variable resolution) to improve performance
+- [x] README.md file with FEATURES, RELEASE & CODE_OF_CONDUCT
+- [x] Labels Synchorization Workflow
 
 ### Bug Fixes
 N/A
