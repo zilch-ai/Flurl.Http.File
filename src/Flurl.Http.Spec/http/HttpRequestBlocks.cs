@@ -1,6 +1,7 @@
 namespace Flurl.Http.Spec;
 
 using System.Collections.Immutable;
+using Fluid;
 using Parlot.Fluent;
 using static Parlot.Fluent.Parsers;
 
@@ -29,9 +30,9 @@ public static class HttpRequestBlocks
             var headers = result.Item2.ToImmutableDictionary
             (
                 kvp => kvp!.Item1.ToString() ?? string.Empty,
-                kvp => kvp!.Item2.ToString()?.Trim() ?? string.Empty
+                kvp => HttpRequestContext.Template.Parse(kvp!.Item2.ToString()?.Trim() ?? string.Empty)
             );
-            var body = result.Item3.ToString() ?? string.Empty;
+            var body = HttpRequestContext.Template.Parse(result.Item3.ToString() ?? string.Empty);
             return new HttpRequestExecutor(verb, endpoint)
             {
                 Version = version ?? "1.1",

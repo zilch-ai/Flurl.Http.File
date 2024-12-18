@@ -11,7 +11,7 @@
 
 ## Overview
 
-Flurl.Http.Spec is a lightweight C# library designed for parsing and executing `.http` or `.rest` files that define HTTP requests. It integrates seamlessly with the Flurl.Http ecosystem & Web devevelopment tools with authoring `.http` or `.rest` files, providing an easy-to-use programmatic interface for developers to execute HTTP requests directly from these specification files. As part of Zilch.AI projects, LLM Agent will leverage this library to define and execute HTTP requests in a human-readable format, including web search agent and API function calls.
+`Flurl.Http.Spec` is a lightweight C# library designed for parsing and executing `.http` or `.rest` files that define HTTP requests. It integrates seamlessly with the `Flurl.Http` ecosystem & Web devevelopment tools with authoring `.http` or `.rest` files, providing an easy-to-use programmatic interface for developers to execute HTTP requests directly from these specification files. As part of Zilch.AI projects, LLM Agent will leverage this library to define and execute HTTP requests in a human-readable format, including web search agent and API function calls.
 
 ## Features
 
@@ -24,7 +24,9 @@ In the current release, the main features include:
 - **Programmatic Interface**: Interact with parsed requests using a programmatic interface in C#.
 - **Asynchronous Request Execution**: Support for async execution of HTTP requests, ensuring non-blocking operations.
   
-For a detailed list of features & backlog, please refer to the [FEATURES](FEATURES.md). And if you want to know more about the latest release and roadmap, please refer to the [RELEASE](RELEASE.md). 
+For a detailed list of features in backlog, please refer to the [FEATURES](FEATURES.md).
+
+And if you want to know more about the latest release and the future release in roadmap, please refer to the [RELEASE](RELEASE.md).
 
 ## Installation
 

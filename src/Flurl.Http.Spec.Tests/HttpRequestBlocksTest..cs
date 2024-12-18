@@ -1,5 +1,7 @@
 namespace Flurl.Http.Spec.Tests;
 
+using Fluid;
+
 public partial class HttpRequestBlocksTest
 {
     [Theory]
@@ -30,10 +32,10 @@ body-test-data
 ";
         var actual = HttpRequestBlocks.Request.Parse(content);
         actual!.Verb.Should().Be("POST");
-        actual!.Endpoint.Should().Be("https://www.example.com");
+        actual!.Endpoint.Render().Should().Be("https://www.example.com");
         actual!.Version.Should().Be("1.0");
         actual!.Headers.Count.Should().Be(1);
-        actual!.Headers["Content-Type"].Should().Be("text/plain");
-        actual!.Body.Should().Be("body-test-data");
+        actual!.Headers["Content-Type"].Render().Should().Be("text/plain");
+        actual!.Body.Render().Should().Be("body-test-data");
     }
 }

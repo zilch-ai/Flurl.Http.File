@@ -10,5 +10,7 @@ public interface IHttpRequestSpec
 
     HttpRequestExecutor this[int index] { get; }
 
-    HttpRequestExecutor this[string key] { get; }
+    HttpRequestExecutor this[string? key] { get; }
+
+    Task<IFlurlResponse> ExecuteAsync(string? key = null, object? model = null);
 }
