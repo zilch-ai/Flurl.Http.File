@@ -52,5 +52,4 @@ jobs:
         flags: unittests
         name: codecov-umbrella
         verbose: true
-        # Ignore CodeCov token configuration in below line if it is a public repository
-        # token: ${{ secrets.CODECOV_TOKEN }}
+        token: ${{ secrets.CODECOV_TOKEN }}
