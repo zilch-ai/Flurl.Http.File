@@ -1,5 +1,22 @@
 # Flurl.Http.Spec
 
+[![NuGet](https://img.shields.io/nuget/v/Flurl.Http.Spec.svg)](https://nuget.org/packages/Flurl.Http.Spec)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Flurl.Http.Spec.svg)](https://www.nuget.org/packages/Flurl.Http.Spec/)
+[![CI](https://github.com/zilch-ai/Flurl.Http.Spec/actions/workflows/dotnet-ci.yml/badge.svg)](https://github.com/zilch-ai/Flurl.Http.Spec/actions/workflows/dotnet-ci.yml)
+[![Codecov](https://codecov.io/gh/zilch-ai/Flurl.Http.Spec/branch/main/graph/badge.svg)](https://codecov.io/gh/zilch-ai/Flurl.Http.Spec)
+[![Languages](https://img.shields.io/github/languages/top/zilch-ai/Flurl.Http.Spec.svg)](https://github.com/zilch-ai/Flurl.Http.Spec)
+[![License](https://img.shields.io/github/license/zilch-ai/Flurl.Http.Spec)](https://github.com/zilch-ai/Flurl.Http.Spec/blob/main/LICENSE)
+
+<!-- Below are Github badges that is reserved for future use: -->
+<!--
+[![GitHub Stars](https://img.shields.io/github/stars/zilch-ai/Flurl.Http.Spec.svg)](https://github.com/zilch-ai/Flurl.Http.Spec/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/zilch-ai/Flurl.Http.Spec.svg)](https://github.com/zilch-ai/Flurl.Http.Spec/network)
+[![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/zilch-ai/Flurl.Http.Spec/discussions)
+[![Languages](https://img.shields.io/github/languages/count/zilch-ai/Flurl.Http.Spec.svg)](https://github.com/zilch-ai/Flurl.Http.Spec)
+[![Downloads](https://img.shields.io/github/downloads/zilch-ai/Flurl.Http.Spec/total.svg)](https://github.com/zilch-ai/Flurl.Http.Spec/releases)
+[![Coveralls](https://coveralls.io/repos/github/zilch-ai/Flurl.Http.Spec/badge.svg?branch=main)](https://coveralls.io/github/zilch-ai/Flurl.Http.Spec?branch=main)
+-->
+
 `Flurl.Http.Spec` is a lightweight C# library for parsing and executing `.http` or `.rest` files with HTTP request definitions. The library is designed to integrate seamlessly with the Flurl.Http ecosystem and provides an easy-to-use programmatic interface.
 
 - [Overview](#overview)

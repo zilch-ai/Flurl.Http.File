@@ -44,3 +44,11 @@ jobs:
       with:
         name: coverage-report
         path: ./coveragereport
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        # Ignore CodeCov token configuration in below line if it is a public repository
+        # token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./TestResults/**/coverage.cobertura.xml
+        flags: unittests
+        name: codecov-umbrella
