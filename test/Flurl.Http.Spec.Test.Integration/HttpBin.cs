@@ -247,6 +247,7 @@ public class HttpBin
         json.Headers.Should().Contain("Content-Type", @"text/plain");
         json.Headers.Should().Contain("Test-Header-Key1", "test-header-value1");
         json.Headers.Should().Contain("Test-Header-Key2", "test-header-value2");
+        json.Headers.Should().Contain("Test-Header-Key3", "test-header-value3");
         json.Url.Should().Be("https://httpbin.org/post?arg=argv");
         json.Data.Should().Be("body-test-data");
     }

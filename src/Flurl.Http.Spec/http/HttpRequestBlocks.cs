@@ -29,7 +29,7 @@ public static class HttpRequestBlocks
             var version = result.Item1.Item3;
             var headers = result.Item2.ToImmutableDictionary
             (
-                kvp => kvp!.Item1.ToString() ?? string.Empty,
+                kvp => HttpRequestContext.Template.Parse(kvp!.Item1.ToString() ?? string.Empty),
                 kvp => HttpRequestContext.Template.Parse(kvp!.Item2.ToString()?.Trim() ?? string.Empty)
             );
             var body = HttpRequestContext.Template.Parse(result.Item3.ToString() ?? string.Empty);

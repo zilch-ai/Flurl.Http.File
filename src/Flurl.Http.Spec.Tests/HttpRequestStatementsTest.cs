@@ -30,6 +30,8 @@ public partial class HttpRequestStatementsTest
     {
         var actual = HttpRequestStatements.Variable.Parse(content);
         actual.Should().NotBeNull();
+        actual.Item1.Should().BeNull();
+        actual.Item2.Should().BeNull();
     }
 
     [Theory]
@@ -44,6 +46,30 @@ public partial class HttpRequestStatementsTest
         actual.Item1.Should().Be(verb);
         actual.Item2.Should().Be(endpoint);
         actual.Item3.Should().Be(version);
+    }
+
+    [Theory]
+    [InlineData("###\n", "")]
+    [InlineData("### \t\n", "")]
+    [InlineData("### abc\n", "abc")]
+    [InlineData("### \tabc\t \n", "abc")]
+    public void TestRequestTag(string content, string tag)
+    {
+        var actual = HttpRequestStatements.RequestTag.Parse(content);
+        actual.Should().Be(tag);
+    }
+
+    [Theory]
+    [InlineData("")]
+    [InlineData("###")]
+    [InlineData("### abc")]
+    [InlineData(" ###\n")]
+    [InlineData("\t###\n")]
+    [InlineData("anytext###\n")]
+    public void TestRequestTagMismatched(string content)
+    {
+        var actual = HttpRequestStatements.RequestTag.Parse(content);
+        actual.Should().BeNull();
     }
 
     [Theory]
