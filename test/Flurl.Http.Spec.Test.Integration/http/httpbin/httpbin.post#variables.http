@@ -4,10 +4,12 @@
 @var4 = value2
 @var5 = header-{{var4}}
 @var6 = test-{{var5}}
+@var7 = Key3
 
 POST https://httpbin.org/post?arg={{var1}} HTTP/1.1
 Content-Type: text/plain
 Test-Header-Key1: test-header-{{var3}}
 Test-Header-Key2: {{var6}}
+Test-Header-{{var7}}: test-header-value3
 
 body-test-{{var2}}

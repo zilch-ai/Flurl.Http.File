@@ -35,7 +35,9 @@ body-test-data
         actual!.Endpoint.Render().Should().Be("https://www.example.com");
         actual!.Version.Should().Be("1.0");
         actual!.Headers.Count.Should().Be(1);
-        actual!.Headers["Content-Type"].Render().Should().Be("text/plain");
+        var headers = actual!.Headers.ToDictionary(kvp => kvp.Key.Render(), kvp => kvp.Value.Render());
+        headers.Should().ContainKey("Content-Type");
+        headers["Content-Type"].Should().Be("text/plain");
         actual!.Body.Render().Should().Be("body-test-data");
     }
 }

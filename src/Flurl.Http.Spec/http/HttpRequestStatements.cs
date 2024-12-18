@@ -26,20 +26,16 @@ public static class HttpRequestStatements
         .And(ZeroOrOne(HttpRequestTokens.Version));
 
     public static readonly Parser<string> RequestTag =
-        HttpRequestTokens.NewLine
-        .SkipAnd(Literals.Text("###", caseInsensitive: false))
+        Literals.Text("###", caseInsensitive: false)
         .SkipAnd
         (
-            ZeroOrOne
+            AnyCharBefore
             (
-                AnyCharBefore
-                (
-                    HttpRequestTokens.NewLine,
-                    canBeEmpty: false,
-                    failOnEof: false
-                )
-                .Then(result => result.ToString()?.Trim() ?? string.Empty)
+                HttpRequestTokens.NewLine,
+                canBeEmpty: true,
+                failOnEof: true
             )
+            .Then(result => result.ToString()?.Trim() ?? string.Empty)
         );
 
     // See in Section 5 in [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#name-fields)

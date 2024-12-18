@@ -2,8 +2,8 @@
 
 Here are the full feature list of the Flurl.Http.Spec library, including all stable/preview features in the latest release, upcoming features in next few releases, and feature items in backlog (as a wish list).
 - [x] All features are implemented in latest official release as stable features
-- [x] (Preview) All features are implemented in latest official release as preview features
-- [ ] (vNext/vBlue) Outcoming features are planned for next few major releases
+- [x] <sup>Preview</sup> All features are implemented in latest official release as preview features
+- [ ] <sup>vNext|vBlue</sup> Outcoming features are planned for next few major releases
 - [ ] Backlog features are planned for future releases
 
 ## Network Transporting
@@ -19,12 +19,12 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
   - [ ] SOCKS5 Proxy
 
 - Protocol
-  - [x] HTML (Web Pages)
-  - [x] JSON (RESTful APIs)
+  - [x] HTML, Web Pages
+  - [x] JSON, RESTful Web APIs
+  - [x] ODATA, RESTful Web APIs with Query
+  - [x] GraphQL, GraphQL Web APIs
   - [ ] gRPC (over HTTP/2)
-  - [ ] ODATA
   - [ ] SOAP
-  - [ ] GraphQL
 
 ## Specification Format
 

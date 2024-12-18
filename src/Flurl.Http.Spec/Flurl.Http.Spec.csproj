@@ -11,7 +11,9 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="$(Home)/*.md" pack="true" PackagePath="." />
+    <None Include="$(Home)/*.md" pack="true" PackagePath=".">
+        <Link>docs\%(FileName)%(Extension)</Link>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,7 @@
 namespace Flurl.Http.Spec;
 
 using Fluid;
-using HttpRequestHeaders = System.Collections.Immutable.ImmutableDictionary<string, Fluid.IFluidTemplate>;
+using HttpRequestHeaders = System.Collections.Immutable.ImmutableDictionary<Fluid.IFluidTemplate, Fluid.IFluidTemplate>;
 
 public class HttpRequestExecutor(string verb, string endpoint)
 {
@@ -28,7 +28,7 @@ public class HttpRequestExecutor(string verb, string endpoint)
             new Dictionary<string, string>(),
             (map, kvp) =>
             {
-                var key = kvp.Key;
+                var key = kvp.Key.Render(context);
                 var value = kvp.Value.Render(context);
                 map.Add(key, value);
                 return map;
