@@ -10,11 +10,12 @@ The release notes provide a summary of the changes in each version of the Flurl.
 
 ### Enhancements
 - [x] Support Fluid template caching (during variable resolution) to improve performance
-- [x] README.md file with FEATURES, RELEASE & CODE_OF_CONDUCT
-- [x] Labels Synchorization Workflow
+- [x] New README.md file with FEATURES, RELEASE and CODE_OF_CONDUCT
 
 ### Bug Fixes
-N/A
+- [x] [#10](https://github.com/zilch-ai/Flurl.Http.Spec/issues/10), Embedded document links are brokens in NuGet README
+- [x] [#12](https://github.com/zilch-ai/Flurl.Http.Spec/issues/12), Exclude Microsoft.CodeAnalysis.Metrics from Nuget Package
+- [x] Fix permission issue in labels synchorization workflow.
 
 ### Breaking Changes
 N/A
