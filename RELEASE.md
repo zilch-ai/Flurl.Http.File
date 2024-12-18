@@ -2,7 +2,7 @@
 
 The release notes provide a summary of the changes in each version of the Flurl.Http.Spec library. They include information on new features, enhancements, bug fixes, breaking changes, deprecated features, known issues, and the release date.
 
-## vNext (Boron, v0.2.x)
+## v0.2.0 (Release Date: 2024-12-18)
 
 ### New Features
 - [x] Support multiple requests combined within a single .http file accessed by named keys
@@ -11,11 +11,12 @@ The release notes provide a summary of the changes in each version of the Flurl.
 ### Enhancements
 - [x] Support Fluid template caching (during variable resolution) to improve performance
 - [x] New README.md file with FEATURES, RELEASE and CODE_OF_CONDUCT
+- [x] Github badges for NuGet (version & downloads), Build Status, Code Coverage, Programming Languages & License
 
 ### Bug Fixes
 - [x] [#10](https://github.com/zilch-ai/Flurl.Http.Spec/issues/10), Embedded document links are brokens in NuGet README
-- [x] [#12](https://github.com/zilch-ai/Flurl.Http.Spec/issues/12), Exclude Microsoft.CodeAnalysis.Metrics from Nuget Package
-- [x] Fix permission issue in labels synchorization workflow.
+- [x] [#12](https://github.com/zilch-ai/Flurl.Http.Spec/issues/12), Exclude Microsoft.CodeAnalysis.Metrics in Nuget
+- [x] Fix 1 permission issue in labels synchorization workflow.
 
 ### Breaking Changes
 N/A
