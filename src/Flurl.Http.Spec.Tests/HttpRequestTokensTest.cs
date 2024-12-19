@@ -1,6 +1,6 @@
 namespace Flurl.Http.Spec.Tests;
 
-public partial class HttpRequestTokensTest
+public class HttpRequestTokensTest
 {
     [Theory]
     [InlineData("\r\nABC", "\r\n")]

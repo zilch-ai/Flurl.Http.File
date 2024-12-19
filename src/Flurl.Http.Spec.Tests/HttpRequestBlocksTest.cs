@@ -2,7 +2,7 @@ namespace Flurl.Http.Spec.Tests;
 
 using Fluid;
 
-public partial class HttpRequestBlocksTest
+public class HttpRequestBlocksTest
 {
     [Theory]
     [InlineData("@id=value\n", "id", "value")]

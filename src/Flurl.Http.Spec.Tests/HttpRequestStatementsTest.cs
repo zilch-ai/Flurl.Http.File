@@ -2,7 +2,7 @@ namespace Flurl.Http.Spec.Tests;
 
 using Parlot;
 
-public partial class HttpRequestStatementsTest
+public class HttpRequestStatementsTest
 {
     [Theory]
     [InlineData("@id=value\n", "id", "value")]

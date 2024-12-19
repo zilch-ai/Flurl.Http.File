@@ -38,6 +38,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- Compiler and related debugging flags -->
+  <PropertyGroup Label="Compile">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
   <!-- QA Build Cops to find out the potential code defects -->
   <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Source'">
     <!-- Runtime/Core Project -->

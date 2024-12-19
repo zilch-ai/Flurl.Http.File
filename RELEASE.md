@@ -2,7 +2,28 @@
 
 The release notes provide a summary of the changes in each version of the Flurl.Http.Spec library. They include information on new features, enhancements, bug fixes, breaking changes, deprecated features, known issues, and the release date.
 
-## v0.2.0 (Release Date: 2024-12-18)
+## vNext, v0.2.x (Release Date: TBD)
+
+### New Features
+- [ ] Support command variables in execution context: guid, random integer
+- [ ] Support environment variables in execution context: system environment variables, .env file
+
+### Enhancements
+N/A
+
+### Bug Fixes
+N/A
+
+### Breaking Changes
+N/A
+
+### Deprecated Features
+N/A
+
+### Known Issues
+N/A
+
+## v0.2.5 (Release Date: 2024-12-19)
 
 ### New Features
 - [x] Support multiple requests combined within a single .http file accessed by named keys
@@ -12,10 +33,13 @@ The release notes provide a summary of the changes in each version of the Flurl.
 - [x] Support Fluid template caching (during variable resolution) to improve performance
 - [x] New README.md file with FEATURES, RELEASE and CODE_OF_CONDUCT
 - [x] Github badges for NuGet (version & downloads), Build Status, Code Coverage, Programming Languages & License
+- [x] Github Tag Version Alignment in Nuget Publishing workflow
+- [x] Automated Nuget package publishing on tagged release branches creation (with tag version alignment)
 
 ### Bug Fixes
 - [x] [#10](https://github.com/zilch-ai/Flurl.Http.Spec/issues/10), Embedded document links are brokens in NuGet README
 - [x] [#12](https://github.com/zilch-ai/Flurl.Http.Spec/issues/12), Exclude Microsoft.CodeAnalysis.Metrics in Nuget
+- [x] [#12](https://github.com/zilch-ai/Flurl.Http.Spec/issues/20), Warnings in Nuget Package Explorer
 - [x] Fix 1 permission issue in labels synchorization workflow.
 
 ### Breaking Changes
