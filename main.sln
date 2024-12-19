@@ -5,9 +5,9 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54E8B3BA-9EA1-40F9-BC53-4743578DCC5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flurl.Http.Spec", "src\Flurl.Http.Spec\Flurl.Http.Spec.csproj", "{EE095E89-AF32-4FA3-8AAE-EED9B4765F7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flurl.Http.Spec.Core", "src\Flurl.Http.Spec.Core\Flurl.Http.Spec.Core.csproj", "{EE095E89-AF32-4FA3-8AAE-EED9B4765F7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flurl.Http.Spec.Tests", "src\Flurl.Http.Spec.Tests\Flurl.Http.Spec.Tests.csproj", "{AD59EE57-3222-4555-884B-39283B6EFC3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flurl.Http.Spec.Core.Tests", "src\Flurl.Http.Spec.Core.Tests\Flurl.Http.Spec.Core.Tests.csproj", "{AD59EE57-3222-4555-884B-39283B6EFC3A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0A5FE622-BABD-4367-9F29-6F5052AE8F66}"
 EndProject
@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flurl.Http.Spec.Test.Integr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pkg", "pkg", "{85502041-6568-4A14-8A7F-22216E366B1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flurl.Http.Spec.Nuget", "pkg\Flurl.Http.Spec.Nuget\Flurl.Http.Spec.Nuget.csproj", "{B1CF4B39-E911-4D94-B328-B7CA388E73E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flurl.Http.Spec", "pkg\Flurl.Http.Spec\Flurl.Http.Spec.csproj", "{B1CF4B39-E911-4D94-B328-B7CA388E73E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tool", "tool", "{54995446-DAEB-475B-B1A5-751E4A5BA936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flurl.Http.Spec.Playground", "tool\Flurl.Http.Spec.Playground\Flurl.Http.Spec.Playground.csproj", "{ABE5BEBA-8227-4C37-8836-445C8F8B8F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE5BEBA-8227-4C37-8836-445C8F8B8F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE5BEBA-8227-4C37-8836-445C8F8B8F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE5BEBA-8227-4C37-8836-445C8F8B8F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE5BEBA-8227-4C37-8836-445C8F8B8F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{AD59EE57-3222-4555-884B-39283B6EFC3A} = {54E8B3BA-9EA1-40F9-BC53-4743578DCC5D}
 		{D4AC5F97-DCDB-4D0E-8079-623EDA505839} = {0A5FE622-BABD-4367-9F29-6F5052AE8F66}
 		{B1CF4B39-E911-4D94-B328-B7CA388E73E5} = {85502041-6568-4A14-8A7F-22216E366B1F}
+		{ABE5BEBA-8227-4C37-8836-445C8F8B8F2D} = {54995446-DAEB-475B-B1A5-751E4A5BA936}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {344C7AEF-943E-49B5-A3D6-AA0EE16867A7}

@@ -144,9 +144,11 @@
   <!-- Nuget Package Metadata & Assembly Info -->
   <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Source'">
     <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Package'">
     <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EnablePackageValidation>true</EnablePackageValidation>
     <!-- PackageId: Remove the .Nuget suffix if having -->
     <PackageId>$(MSBuildProjectName.TrimEnd(".Nuget"))</PackageId>
@@ -160,9 +162,8 @@
     <PackageProjectUrl>https://github.com/zilch-ai/Flurl.Http.Spec</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zilch-ai/Flurl.Http.Spec</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <!-- Source Linking & Documentation -->
+    <!-- Source Linking -->
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- License -->
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

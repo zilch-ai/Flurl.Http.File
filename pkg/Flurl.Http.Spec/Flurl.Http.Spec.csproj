@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(SourceDir)/Flurl.Http.Spec/Flurl.Http.Spec.csproj" />
+    <ProjectReference Include="$(SourceDir)/Flurl.Http.Spec.Core/Flurl.Http.Spec.Core.csproj" />
   </ItemGroup>
 
   <!-- TODO: Move to Build.props -->
