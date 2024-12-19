@@ -1,20 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <IsPackable>true</IsPackable>
-    <PackageId>Flurl.Http.Spec</PackageId>
-    <Description>Flurl.Http.Spec is a lightweight C# library for parsing and executing `.HTTP` or `.REST` files with HTTP request definitions. The library is designed to integrate seamlessly with the Flurl.Http ecosystem and provides an easy-to-use programmatic interface.</Description>
-    <PackageTags>http;request;spec</PackageTags>
-    <PackageProjectUrl>https://github.com/zilch-ai/Flurl.Http.Spec</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/zilch-ai/Flurl.Http.Spec</RepositoryUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="README.md" pack="true" PackagePath="." />
-    <None Include="bin\$(Configuration)\$(TargetFramework)\*.pdb" Pack="true" PackagePath="lib\$(TargetFramework)\" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Fluid.Core" />
     <PackageReference Include="Flurl.Http" />
