@@ -61,7 +61,7 @@ N/A
 
 ### New Features
 - [x] Simplest HTTP GET request parsing and execution with code framing
-- [x] Robust and flexible syntax parser for .HTTP files, supports all HTTP methods, headers, and body
+- [x] Robust and flexible syntax parser for .HTTP files, supports all HTTP methods, headers and body
 - [x] Predefined inline variables (global) as execution context
 - [x] Recursive variable references in execution context
 - [x] Inline comments in .HTTP files
