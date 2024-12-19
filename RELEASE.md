@@ -2,7 +2,7 @@
 
 The release notes provide a summary of the changes in each version of the Flurl.Http.Spec library:
 - New features, Enhancements and Bug fixes (critical)
-- Breaking changes & Deprecated features
+- Breaking changes and Deprecated features
 - Known issues
 
 ## vNext, v0.3.x (Release Date: TBD)
@@ -14,7 +14,7 @@ The release notes provide a summary of the changes in each version of the Flurl.
 ### Enhancements
 - [ ] Code Quality: Unit Test Coverage >= 95%, Integration Test Coverage >= 90%
 - [ ] Dedicate project for Nuget package management (isolating from source code)
-- [ ] Playgound CLI Tools (package references & interactive demo)
+- [ ] Playground CLI Tools (package references and interactive demo)
 - [ ] DIRS in README.md for project structure
 
 ### Bug Fixes
@@ -38,7 +38,7 @@ N/A
 ### Enhancements
 - [x] Support Fluid template caching (during variable resolution) to improve performance
 - [x] New README.md file with FEATURES, RELEASE and CODE_OF_CONDUCT
-- [x] Github badges for NuGet (version & downloads), Build Status, Code Coverage, Programming Languages & License
+- [x] Github badges for NuGet (version and downloads), Build Status, Code Coverage, Programming Languages and License
 - [x] Github Tag Version Alignment in Nuget Publishing workflow
 - [x] Automated Nuget package publishing on tagged release branches creation (with tag version alignment)
 
@@ -60,8 +60,8 @@ N/A
 ## v0.1.3 (Release Date: 2024-12-16)
 
 ### New Features
-- [x] Simplest HTTP GET request parsing & execution with code framing
-- [x] Robust & flexible syntax parser for .HTTP files, supports all HTTP methods, headers, and body
+- [x] Simplest HTTP GET request parsing and execution with code framing
+- [x] Robust and flexible syntax parser for .HTTP files, supports all HTTP methods, headers, and body
 - [x] Predefined inline variables (global) as execution context
 - [x] Recursive variable references in execution context
 - [x] Inline comments in .HTTP files
