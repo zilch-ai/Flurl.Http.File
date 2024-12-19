@@ -142,9 +142,9 @@
     <IsPackable>false</IsPackable>
     <EnablePackageValidation>true</EnablePackageValidation>
     <!-- Versioning -->
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <VersionPrefix></VersionPrefix>
-    <VersionSuffix>alpha</VersionSuffix>
+    <VersionSuffix></VersionSuffix>
     <!-- Project Information -->
     <Authors>@nemossi</Authors>
     <Company>Zilch.AI</Company>

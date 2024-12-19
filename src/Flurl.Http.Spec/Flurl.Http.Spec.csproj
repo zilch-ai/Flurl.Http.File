@@ -5,18 +5,13 @@
     <PackageId>Flurl.Http.Spec</PackageId>
     <Description>Flurl.Http.Spec is a lightweight C# library for parsing and executing `.HTTP` or `.REST` files with HTTP request definitions. The library is designed to integrate seamlessly with the Flurl.Http ecosystem and provides an easy-to-use programmatic interface.</Description>
     <PackageTags>http;request;spec</PackageTags>
-    <Version>0.2.0</Version> <!-- Automated overwriting by tag version -->
     <PackageProjectUrl>https://github.com/zilch-ai/Flurl.Http.Spec</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zilch-ai/Flurl.Http.Spec</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Pack README files linked to NuGet package metadata -->
-    <None Include="$(Home)/*.md" pack="true" PackagePath=".">
-        <!--<Link>docs\%(FileName)%(Extension)</Link>-->
-    </None>
-    <!-- Pack all `.pdb` symbols files -->
+    <None Include="README.md" pack="true" PackagePath="." />
     <None Include="bin\$(Configuration)\$(TargetFramework)\*.pdb" Pack="true" PackagePath="lib\$(TargetFramework)\" />
   </ItemGroup>
 
