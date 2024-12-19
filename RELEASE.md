@@ -23,7 +23,7 @@ N/A
 ### Known Issues
 N/A
 
-## v0.2.5 (Release Date: 2024-12-19)
+## v0.2.6 (Release Date: 2024-12-19)
 
 ### New Features
 - [x] Support multiple requests combined within a single .http file accessed by named keys
