@@ -12,10 +12,10 @@ Here are the full feature list of the Flurl.Http.Spec library:
   - [x] HTTP/1.0
   - [x] HTTP/1.1
   - [x] HTTP/2.0 
-  - [ ] <sup>vblue</sup>HTTP/3 (QUIC)
+  - [ ] <sup>vblue</sup> HTTP/3 (QUIC)
 
 - Proxy
-  - [ ] <sup>vblue</sup>HTTP Proxy
+  - [ ] <sup>vblue</sup> HTTP Proxy
   - [ ] SOCKS5 Proxy
 
 - Protocol
@@ -80,7 +80,7 @@ Here are the full feature list of the Flurl.Http.Spec library:
 ## Authentication & Authorization
 
 - Client Auth
-  - [ ] <sup>vnext</sup> API Client Key & Secret 
+  - [ ] <sup>vnext</sup> API Client Key and Secret 
   - [ ] OAuth2.0: Client Credentials Grant
 
 - User Auth
@@ -96,8 +96,8 @@ Here are the full feature list of the Flurl.Http.Spec library:
   - [x] README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT
   - [x] Release Notes, Change Log, Features Backlog & Roadmap
   - [ ] <sup>vnext</sup> DIRS & Project Structure 
-  - [ ] <sup>vnext</sup> Playgound & Interactive Demo Tools
-  - [ ] Tutorials & Guides
+  - [ ] <sup>vnext</sup> Playground & Interactive Demo Tools
+  - [ ] Tutorials & Guider
   - [ ] API Reference
   - [ ] Examples & Use Cases
 
