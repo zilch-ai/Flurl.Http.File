@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Fluid.Core" />
+    <PackageReference Include="Flurl.Http" />
+    <PackageReference Include="Parlot" />
+  </ItemGroup>
+
+</Project>

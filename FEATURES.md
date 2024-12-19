@@ -12,10 +12,10 @@ Here are the full feature list of the Flurl.Http.Spec library:
   - [x] HTTP/1.0
   - [x] HTTP/1.1
   - [x] HTTP/2.0 
-  - [ ] HTTP/3 (QUIC)
+  - [ ] <sup>vblue</sup> HTTP/3 (QUIC)
 
 - Proxy
-  - [ ] HTTP Proxy
+  - [ ] <sup>vblue</sup> HTTP Proxy
   - [ ] SOCKS5 Proxy
 
 - Protocol
@@ -36,7 +36,7 @@ Here are the full feature list of the Flurl.Http.Spec library:
     - [ ] HTTP Endpoint: Relative Path with Query Parameters (unofficial syntax)
     - [x] HTTP Headers
     - [x] HTTP Request Body
-    - [x] Variable Definition & References
+    - [x] Variable Definition and References
     - [x] Inline Comments
     - [x] Request Separators with Tag
   - [ ] cURL request format
@@ -53,55 +53,59 @@ Here are the full feature list of the Flurl.Http.Spec library:
 ## Execution Context
 
 - User Variables
-  - [x] User variable references in HTTP endpoint, header values & body
+  - [x] User variable references in HTTP endpoint, headers and body
   - [x] Recursive variable references: nested variables referencing in variable definitions
   - [x] User variables overwriting (external context per execution)
 
 - Environment Variables
   - [ ] <sup>vnext</sup> Environment Variables: System Environment
   - [ ] <sup>vnext</sup> Environment Variables: .env file
+  - [ ] <sup>vblue</sup> Secret Variables: User Secrets (settings, local development environment only)
   - [ ] Secret Variables: Docker secrets
   - [ ] Secret Variables: Azure Key Vault
-  - [ ] Secret Variables: User Secrets (settings, local development environment only)
 
 - Command Variables
   - [ ] <sup>vnext</sup> GUID generator
   - [ ] <sup>vnext</sup> Random number generator
-  - [ ] Date/Time expression
+  - [ ] <sup>vblue</sup> Date/Time expression
 
 - Workflow Variables
   - [ ] Output Cookie Variables in Api Workflow
   - [ ] Output Json Variables in Api Workflow
 
 - Liquid Expression
-  - [ ] Math expression (unoffical)
-  - [ ] Conditional & Logical expression (unoffical)
+  - [ ] Math expression (unofficial)
+  - [ ] Conditional and Logical expression (unofficial)
 
-## Authentication & Authorization
+## Authentication and Authorization
 
 - Client Auth
-  - [ ] API Key
-  - [ ] OAuth 2.0 with Client Certificates
+  - [ ] <sup>vnext</sup> API Client Key and Secret 
+  - [ ] OAuth2.0: Client Credentials Grant
 
 - User Auth
-  - [ ] Microsoft Identity
-  - [ ] OpenID Connect
+  - [ ] Basic Auth (in HTTP header or query parameter)
+  - [ ] OAuth2.0: Bearer Token (in HTTP header)
+  - [ ] OAuth2.0: Authorization Code Grant (in HTTP header)
+  - [ ] OpenID Connect: ID Token and Access Token (JWT), Authorization Code Grant in OAuth2.0
+  - [ ] OpenID Connect: Implicit Grant in OAuth2.0
 
-## Quality & Engineering System
+## Quality and Engineering System
 
 - Documentation
   - [x] README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT
-  - [x] Release Notes, Change Log, Features Backlog & Roadmap 
-  - [ ] Tutorials & Guides
+  - [x] Release Notes, Change Log, Features Backlog and Roadmap
+  - [ ] <sup>vnext</sup> DIRS and Project Structure 
+  - [ ] <sup>vnext</sup> Playground and Interactive Demo Tools
+  - [ ] Tutorials and Guides
   - [ ] API Reference
-  - [ ] Examples & Use Cases
-  - [ ] Playgound & Interactive Demo
+  - [ ] Examples and Use Cases
 
 - Github Integration
   - Github Onboarding
     - [x] Permission
     - [x] Boards
-    - [x] Issues: Labels, Milestones & Issue Templates
+    - [x] Issues: Labels, Milestones and Issue Templates
     - [x] PR Template
   - Gitbub Actions: CI/CD, Code Analysis, Code Review, Code Quality, Code Security...
     - [x] CI/Gated Pipeline via Github Workflow
@@ -109,9 +113,9 @@ Here are the full feature list of the Flurl.Http.Spec library:
     - [x] Labels Synchorization Workflow
     - [ ] Milestone Synchorization Workflow
   - Github Badges
-    - [x] Nuget Version & Downloads
+    - [x] Nuget Version and Downloads
     - [x] Build Status
-    - [x] Code Coverage & Reports
+    - [x] Code Coverage and Reports
     - [x] Programming Languages
     - [x] License
     - [ ] Trending of Stars, Forks on Github
@@ -119,24 +123,26 @@ Here are the full feature list of the Flurl.Http.Spec library:
 - Tests
   - Unit Tests
     - [x] Gatecd Tests
-    - [ ] Test Coverage
-    - [ ] Test Report
+    - [x] Test Coverage
+    - [x] Test Report
   - Integration Tests with Project Reference (Pre-Release)
+    - [x] SERP Tests for Real World Scenarios
+    - [x] HttpBin Tests for Functionality and Compatibility (Remote)
+    - [ ] <sup>vblue</sup> HttpBin Tests for Functionality and Compatibility (Docker)
     - [ ] Smoke Tests before Integration Tests (Mock Tests for CI/CD Efficiency)
-    - [x] HttpBin Tests for Functionality & Compatibility (Remote)
-    - [ ] HttpBin Tests for Functionality & Compatibility (Docker)
-    - [ ] SERP Tests for Real World Scenarios
   - [ ] Integration Tests with Package References (Post-Release)
 
 - Build Cops
   - [x] Roslyn Code Analysis
   - [x] Style Cops Analysis
-  - [x] xUnit & Moq Analysis
+  - [x] xUnit and Moq Analysis
   - [x] Code Complexity Metrics
 
 - Performance
+  - [ ] Benchmarking and Profiling
+  - [ ] Hotspot Analysis and Optimization (Slowness)
+  - [ ] <sup>vblue</sup> Stability and Reliability (Multithreading)
+  - [ ] Load Testing and Scalability (Bottleneck)
   - [x] Fluid Template Caching
-  - [ ] Benchmarking & Profiling
-  - [ ] Stability & Reliability (Multithreading)
-  - [ ] Hotspot Analysis & Optimization (Slowness)
-  - [ ] Load Testing & Scalability (Bottleneck)
+  - [ ] Shortcut to plain text if no template variable references
+  - [ ] Memory footprint and GC optimization 
