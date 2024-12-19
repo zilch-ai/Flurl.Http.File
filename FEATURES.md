@@ -74,8 +74,8 @@ Here are the full feature list of the Flurl.Http.Spec library:
   - [ ] Output Json Variables in Api Workflow
 
 - Liquid Expression
-  - [ ] Math expression (unoffical)
-  - [ ] Conditional and Logical expression (unoffical)
+  - [ ] Math expression (unofficial)
+  - [ ] Conditional and Logical expression (unofficial)
 
 ## Authentication and Authorization
 
