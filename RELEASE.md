@@ -1,7 +1,7 @@
 # Release Notes
 
 The release notes provide a summary of the changes in each version of the Flurl.Http.Spec library:
-- New features, Enhancements & Bug fixes (critical)
+- New features, Enhancements and Bug fixes (critical)
 - Breaking changes & Deprecated features
 - Known issues
 
