@@ -1,9 +1,9 @@
 # Features
 
-Here are the full feature list of the Flurl.Http.Spec library, including all stable/preview features in the latest release, upcoming features in next few releases, and feature items in backlog (as a wish list).
+Here are the full feature list of the Flurl.Http.Spec library:
 - [x] All features are implemented in latest official release as stable features
-- [x] <sup>Preview</sup> All features are implemented in latest official release as preview features
-- [ ] <sup>vNext|vBlue</sup> Outcoming features are planned for next few major releases
+- [x] <sup>preview</sup> All features are implemented in latest official release as preview features
+- [ ] <sup>vnext|vblue</sup> Outcoming features are planned for next few major releases
 - [ ] Backlog features are planned for future releases
 
 ## Network Transporting
@@ -58,15 +58,15 @@ Here are the full feature list of the Flurl.Http.Spec library, including all sta
   - [x] User variables overwriting (external context per execution)
 
 - Environment Variables
-  - [ ] Environment Variables: System Environment
-  - [ ] Environment Variables: .env file
+  - [ ] <sup>vnext</sup> Environment Variables: System Environment
+  - [ ] <sup>vnext</sup> Environment Variables: .env file
   - [ ] Secret Variables: Docker secrets
   - [ ] Secret Variables: Azure Key Vault
   - [ ] Secret Variables: User Secrets (settings, local development environment only)
 
 - Command Variables
-  - [ ] GUID generator
-  - [ ] Random number generator
+  - [ ] <sup>vnext</sup> GUID generator
+  - [ ] <sup>vnext</sup> Random number generator
   - [ ] Date/Time expression
 
 - Workflow Variables
