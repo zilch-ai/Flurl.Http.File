@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>lightweight .NET library for parsing and executing `.HTTP` or `.REST` files with HTTP request definitions.</Description>
+    <PackageTags>http;request;spec</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SourceDir)/Flurl.Http.Spec/Flurl.Http.Spec.csproj" />
+  </ItemGroup>
+
+  <!-- TODO: Move to Build.props -->
+  <PropertyGroup>
+    <PackageId>Flurl.Http.Spec</PackageId>
+  </PropertyGroup>
+
+</Project>

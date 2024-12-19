@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-        <ProjectReference Include="$(SourceDir)/Flurl.Http.Spec/Flurl.Http.Spec.csproj" />
-        <Content Include="http/**">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SourceDir)/Flurl.Http.Spec/Flurl.Http.Spec.csproj" />
+    <Content Include="http/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>

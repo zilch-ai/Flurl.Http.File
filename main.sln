@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0A5FE622-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flurl.Http.Spec.Test.Integration", "test\Flurl.Http.Spec.Test.Integration\Flurl.Http.Spec.Test.Integration.csproj", "{D4AC5F97-DCDB-4D0E-8079-623EDA505839}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pkg", "pkg", "{85502041-6568-4A14-8A7F-22216E366B1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flurl.Http.Spec.Nuget", "pkg\Flurl.Http.Spec.Nuget\Flurl.Http.Spec.Nuget.csproj", "{B1CF4B39-E911-4D94-B328-B7CA388E73E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{D4AC5F97-DCDB-4D0E-8079-623EDA505839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4AC5F97-DCDB-4D0E-8079-623EDA505839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4AC5F97-DCDB-4D0E-8079-623EDA505839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1CF4B39-E911-4D94-B328-B7CA388E73E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +47,7 @@ Global
 		{EE095E89-AF32-4FA3-8AAE-EED9B4765F7E} = {54E8B3BA-9EA1-40F9-BC53-4743578DCC5D}
 		{AD59EE57-3222-4555-884B-39283B6EFC3A} = {54E8B3BA-9EA1-40F9-BC53-4743578DCC5D}
 		{D4AC5F97-DCDB-4D0E-8079-623EDA505839} = {0A5FE622-BABD-4367-9F29-6F5052AE8F66}
+		{B1CF4B39-E911-4D94-B328-B7CA388E73E5} = {85502041-6568-4A14-8A7F-22216E366B1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {344C7AEF-943E-49B5-A3D6-AA0EE16867A7}

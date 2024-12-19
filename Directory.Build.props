@@ -6,6 +6,7 @@
     <Home>$(HomePlatformSpecific.Replace('\', '/'))</Home>
     <BuildDir>$(Home)/.build</BuildDir>
     <SourceDir>$(Home)/src</SourceDir>
+    <PackageDir>$(Home)/pkg</PackageDir>
     <TestDir>$(Home)/test</TestDir>
     <ToolDir>$(Home)/tool</ToolDir>
     <ProjectDir>$(MSBuildProjectDirectory.Replace('\', '/'))</ProjectDir>
@@ -17,6 +18,9 @@
   </PropertyGroup>
   <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)')) And $(MSBuildProjectName.EndsWith('.Tests'))">
     <ProjectType>Test</ProjectType>
+  </PropertyGroup>
+ <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(PackageDir)'))">
+    <ProjectType>Package</ProjectType>
   </PropertyGroup>
  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(TestDir)'))">
     <ProjectType>Test</ProjectType>
@@ -140,23 +144,36 @@
   <!-- Nuget Package Metadata & Assembly Info -->
   <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Source'">
     <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Package'">
+    <IsPackable>true</IsPackable>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <!-- Versioning -->
+    <!-- PackageId: Remove the .Nuget suffix if having -->
+    <PackageId>$(MSBuildProjectName.TrimEnd(".Nuget"))</PackageId>
+    <!-- Version: Overwrite by Git tag version within Github workflow -->
     <Version>0.2.0</Version>
     <VersionPrefix></VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <!-- Project Information -->
     <Authors>@nemossi</Authors>
     <Company>Zilch.AI</Company>
-    <PackageProjectUrl>https://github.com/zilch-ai/zilch</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/zilch-ai/zilch</RepositoryUrl>
-    <!-- Source Likning & Documentation -->
+    <PackageProjectUrl>https://github.com/zilch-ai/Flurl.Http.Spec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zilch-ai/Flurl.Http.Spec</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Source Linking & Documentation -->
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- License Information -->
+    <!-- License -->
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <!-- README -->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+  <ItemGroup Label="Nuget" Condition="'$(ProjectType)' == 'Package'">
+    <!-- README -->
+    <None Include="README.md" pack="true" PackagePath="." />
+    <!-- Debug Symbols: .pdb files-->
+    <None Include="bin\$(Configuration)\$(TargetFramework)\*.pdb" Pack="true" PackagePath="lib\$(TargetFramework)\" />
+  </ItemGroup>
 
 </Project>

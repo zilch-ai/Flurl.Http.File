@@ -1,15 +1,21 @@
 # Release Notes
 
-The release notes provide a summary of the changes in each version of the Flurl.Http.Spec library. They include information on new features, enhancements, bug fixes, breaking changes, deprecated features, known issues, and the release date.
+The release notes provide a summary of the changes in each version of the Flurl.Http.Spec library:
+- New features, Enhancements & Bug fixes (critical)
+- Breaking changes & Deprecated features
+- Known issues
 
-## vNext, v0.2.x (Release Date: TBD)
+## vNext, v0.3.x (Release Date: TBD)
 
 ### New Features
 - [ ] Support command variables in execution context: guid, random integer
 - [ ] Support environment variables in execution context: system environment variables, .env file
 
 ### Enhancements
-N/A
+- [ ] Code Quality: Unit Test Coverage >= 95%, Integration Test Coverage >= 90%
+- [ ] Dedicate project for Nuget package management (isolating from source code)
+- [ ] Playgound CLI Tools (package references & interactive demo)
+- [ ] DIRS in README.md for project structure
 
 ### Bug Fixes
 N/A

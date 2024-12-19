@@ -12,10 +12,10 @@ Here are the full feature list of the Flurl.Http.Spec library:
   - [x] HTTP/1.0
   - [x] HTTP/1.1
   - [x] HTTP/2.0 
-  - [ ] HTTP/3 (QUIC)
+  - [ ] <sup>vblue</sup>HTTP/3 (QUIC)
 
 - Proxy
-  - [ ] HTTP Proxy
+  - [ ] <sup>vblue</sup>HTTP Proxy
   - [ ] SOCKS5 Proxy
 
 - Protocol
@@ -60,14 +60,14 @@ Here are the full feature list of the Flurl.Http.Spec library:
 - Environment Variables
   - [ ] <sup>vnext</sup> Environment Variables: System Environment
   - [ ] <sup>vnext</sup> Environment Variables: .env file
+  - [ ] <sup>vblue</sup> Secret Variables: User Secrets (settings, local development environment only)
   - [ ] Secret Variables: Docker secrets
   - [ ] Secret Variables: Azure Key Vault
-  - [ ] Secret Variables: User Secrets (settings, local development environment only)
 
 - Command Variables
   - [ ] <sup>vnext</sup> GUID generator
   - [ ] <sup>vnext</sup> Random number generator
-  - [ ] Date/Time expression
+  - [ ] <sup>vblue</sup> Date/Time expression
 
 - Workflow Variables
   - [ ] Output Cookie Variables in Api Workflow
@@ -80,22 +80,26 @@ Here are the full feature list of the Flurl.Http.Spec library:
 ## Authentication & Authorization
 
 - Client Auth
-  - [ ] API Key
-  - [ ] OAuth 2.0 with Client Certificates
+  - [ ] <sup>vnext</sup> API Client Key & Secret 
+  - [ ] OAuth2.0: Client Credentials Grant
 
 - User Auth
-  - [ ] Microsoft Identity
-  - [ ] OpenID Connect
+  - [ ] Basic Auth (in HTTP header or query parameter)
+  - [ ] OAuth2.0: Bearer Token (in HTTP header)
+  - [ ] OAuth2.0: Authorization Code Grant (in HTTP header)
+  - [ ] OpenID Connect: ID Token & Access Token (JWT), Authorization Code Grant in OAuth2.0
+  - [ ] OpenID Connect: Implicit Grant in OAuth2.0
 
 ## Quality & Engineering System
 
 - Documentation
   - [x] README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT
-  - [x] Release Notes, Change Log, Features Backlog & Roadmap 
+  - [x] Release Notes, Change Log, Features Backlog & Roadmap
+  - [ ] <sup>vnext</sup> DIRS & Project Structure 
+  - [ ] <sup>vnext</sup> Playgound & Interactive Demo Tools
   - [ ] Tutorials & Guides
   - [ ] API Reference
   - [ ] Examples & Use Cases
-  - [ ] Playgound & Interactive Demo
 
 - Github Integration
   - Github Onboarding
@@ -119,13 +123,13 @@ Here are the full feature list of the Flurl.Http.Spec library:
 - Tests
   - Unit Tests
     - [x] Gatecd Tests
-    - [ ] Test Coverage
-    - [ ] Test Report
+    - [x] Test Coverage
+    - [x] Test Report
   - Integration Tests with Project Reference (Pre-Release)
-    - [ ] Smoke Tests before Integration Tests (Mock Tests for CI/CD Efficiency)
+    - [x] SERP Tests for Real World Scenarios
     - [x] HttpBin Tests for Functionality & Compatibility (Remote)
-    - [ ] HttpBin Tests for Functionality & Compatibility (Docker)
-    - [ ] SERP Tests for Real World Scenarios
+    - [ ] <sup>vblue</sup> HttpBin Tests for Functionality & Compatibility (Docker)
+    - [ ] Smoke Tests before Integration Tests (Mock Tests for CI/CD Efficiency)
   - [ ] Integration Tests with Package References (Post-Release)
 
 - Build Cops
@@ -135,8 +139,10 @@ Here are the full feature list of the Flurl.Http.Spec library:
   - [x] Code Complexity Metrics
 
 - Performance
-  - [x] Fluid Template Caching
   - [ ] Benchmarking & Profiling
-  - [ ] Stability & Reliability (Multithreading)
   - [ ] Hotspot Analysis & Optimization (Slowness)
+  - [ ] <sup>vblue</sup> Stability & Reliability (Multithreading)
   - [ ] Load Testing & Scalability (Bottleneck)
+  - [x] Fluid Template Caching
+  - [ ] Shortcut to plain text if no template variable references
+  - [ ] Memory footprint & GC optimization 
