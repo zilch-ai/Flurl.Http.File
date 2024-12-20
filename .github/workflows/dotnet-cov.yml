@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Prepare: Enlist + Restore + Build
     - uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -32,9 +33,13 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build -c Release --no-restore -p:Deterministic=true -p:ContinuousIntegrationBuild=true
+      run: dotnet build -c Release -p:Deterministic=true -p:ContinuousIntegrationBuild=true --no-restore
+
+    # Test with Code Coverage
     - name: Test with code coverage
-      run: dotnet test -c Release --no-build --verbosity normal --settings ./.build/xunit.coverlet.runsettings --results-directory ./TestResults
+      run: dotnet test -c Release -v normal -s ./.build/xunit.coverlet.runsettings --results-directory ./TestResults --no-build
+
+    # Test Report
     - name: Install ReportGenerator
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
     - name: Generate code coverage report

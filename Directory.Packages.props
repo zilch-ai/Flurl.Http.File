@@ -38,8 +38,6 @@
   <!-- Dev/Tests Dependencies -->
   <ItemGroup>
     <!-- Dev Infrastructure -->
-    <PackageVersion Include="Antlr4.Runtime.Standard" Version="4.13.1" /> <!-- g4 grammar parser -->
-    <PackageVersion Include="Antlr4BuildTasks" Version="12.8.0" /> <!-- g4 grammar parser build task -->
     <PackageVersion Include="Fody" Version="6.8.2" /> <!-- Code weaving utility -->
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.11.0" /> <!-- C# scripting utility -->
     <PackageVersion Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" /> <!-- Code metrics analyzer -->

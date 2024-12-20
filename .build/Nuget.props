@@ -1,0 +1,39 @@
+<Project>
+
+  <!-- Flags to enable publishing package & document -->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- PackageId: Remove the .Nuget suffix if having -->
+    <PackageId>$(MSBuildProjectName.TrimEnd(".Package"))</PackageId>
+
+    <!-- Version: Overwrite by Git tag version within Github workflow -->
+    <Version>0.2.0</Version>
+    <VersionPrefix></VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+
+    <!-- Project Information -->
+    <Authors>@nemossi</Authors>
+    <Company>Zilch.AI</Company>
+    <PackageProjectUrl>https://github.com/zilch-ai/Flurl.Http.Spec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zilch-ai/Flurl.Http.Spec</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+    <!-- Source Linking -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <!-- License -->
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup Label="Nuget" Condition="'$(ProjectType)' == 'Package'">
+    <!-- Debug Symbols: .pdb files-->
+    <None Include="bin\$(Configuration)\$(TargetFramework)\*.pdb" Pack="true" PackagePath="lib\$(TargetFramework)\" />
+  </ItemGroup>
+
+</Project>

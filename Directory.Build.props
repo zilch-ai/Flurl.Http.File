@@ -13,19 +13,28 @@
   </PropertyGroup>
 
   <!-- Project Type, detected from its project name and location -->
-  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)')) And !$(MSBuildProjectName.EndsWith('.Tests'))">
+  <!--
+          Source: High quality codebase for runtime living use (production)
+          Package: Nodeless package for distribution (production, codeless)
+          Test: Unit test, functionality tests, integration tests, benchmark tests (non-producton)
+          Tool: Examples, demo, playground or other utility tools (non-production)
+  -->
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)'))">
     <ProjectType>Source</ProjectType>
   </PropertyGroup>
   <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)')) And $(MSBuildProjectName.EndsWith('.Tests'))">
     <ProjectType>Test</ProjectType>
   </PropertyGroup>
- <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(PackageDir)'))">
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(SourceDir)')) And $(MSBuildProjectName.EndsWith('.Package'))">
     <ProjectType>Package</ProjectType>
   </PropertyGroup>
- <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(TestDir)'))">
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(PackageDir)'))">
+    <ProjectType>Package</ProjectType>
+  </PropertyGroup>
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(TestDir)'))">
     <ProjectType>Test</ProjectType>
   </PropertyGroup>
- <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(ToolDir)'))">
+  <PropertyGroup Label="ProjectType" Condition="$(ProjectDir.StartsWith('$(ToolDir)'))">
     <ProjectType>Tool</ProjectType>
   </PropertyGroup>
 
@@ -50,132 +59,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <!-- QA Build Cops to find out the potential code defects -->
-  <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Source'">
-    <!-- Runtime/Core Project -->
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <AnalysisLevel>latest-all</AnalysisLevel>
-    <NoWarn>
-      <!-- Ignore these IDE warnings for keyword order rules conflicts between IDE0036 and SA1206. -->
-      IDE0036;
-      <!--Ignore these SA warnings for bracket spacing (to support bracket/parameter alignment). -->
-      SA1009;SA1110;SA1111;
-      <!--TODO: Ignore these CA/SA warnings (for documentation styles) before public interfaces are stable. -->
-      CS1591;SA1600;SA1601;SA1602;SA1633;
-    </NoWarn>
-  </PropertyGroup>
-  <ItemGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Source'">
-    <PackageReference Include="StyleCop.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <AdditionalFiles Include="$(BuildDir)/stylecop.json" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Metrics">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>    
-  </ItemGroup>
-  <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Test'">
-    <!-- Unit Test Project -->
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
-    <NoWarn></NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Label="BuildCops" Condition="'$(ProjectType)' == 'Tool'">
-    <!-- Tool Project -->
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
-    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
-    <AnalysisLevel>latest-minimal</AnalysisLevel>
-    <NoWarn></NoWarn>
-  </PropertyGroup>
-
-  <!-- Prebuilt Items (All projects) -->
-  <ItemGroup>
-    <PackageReference Include="Throw" />
-
-    <Using Include="System.Diagnostics.CodeAnalysis" />
-    <Using Include="System.Globalization" />
-    <Using Include="Throw" />
-  </ItemGroup>
-
-  <!-- Prebuilt Items (Test Projects Only) -->
-  <ItemGroup Label="TestAssets" Condition="'$(ProjectType)' == 'Test'">
-    <!-- Test Infrastrcuture -->
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="coverlet.collector">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="coverlet.msbuild">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="ReportGenerator" />
-    <PackageReference Include="xunit.analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="xunit.runner.visualstudio">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Moq.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <!-- Test Utility -->
-    <PackageReference Include="xunit" />
-    <PackageReference Include="Xunit.Combinatorial" />
-    <PackageReference Include="Moq" />
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="Bogus" />
-    <PackageReference Include="NodaTime" />
-    <PackageReference Include="NodaTime.Testing" />
-    <!-- Implicit Using -->
-    <Using Include="Xunit" />
-    <Using Include="FluentAssertions" />
-    <Using Include="Moq" />
-  </ItemGroup>
-
-  <!-- Nuget Package Metadata & Assembly Info -->
-  <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Source'">
-    <IsPackable>false</IsPackable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Label="Nuget" Condition="'$(ProjectType)' == 'Package'">
-    <IsPackable>true</IsPackable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <EnablePackageValidation>true</EnablePackageValidation>
-    <!-- PackageId: Remove the .Nuget suffix if having -->
-    <PackageId>$(MSBuildProjectName.TrimEnd(".Nuget"))</PackageId>
-    <!-- Version: Overwrite by Git tag version within Github workflow -->
-    <Version>0.2.0</Version>
-    <VersionPrefix></VersionPrefix>
-    <VersionSuffix></VersionSuffix>
-    <!-- Project Information -->
-    <Authors>@nemossi</Authors>
-    <Company>Zilch.AI</Company>
-    <PackageProjectUrl>https://github.com/zilch-ai/Flurl.Http.Spec</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/zilch-ai/Flurl.Http.Spec</RepositoryUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <!-- Source Linking -->
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <!-- License -->
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <!-- README -->
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
-  <ItemGroup Label="Nuget" Condition="'$(ProjectType)' == 'Package'">
-    <!-- README -->
-    <None Include="README.md" pack="true" PackagePath="." />
-    <!-- Debug Symbols: .pdb files-->
-    <None Include="bin\$(Configuration)\$(TargetFramework)\*.pdb" Pack="true" PackagePath="lib\$(TargetFramework)\" />
-  </ItemGroup>
-
+  <!-- BuildCops & Prebuilt per Project Type -->
+  <Import Project="$(BuildDir)/BuildCops.Props" />
+  <Import Project="$(BuildDir)/Prebuilt.Props" />
+  <Import Project="$(BuildDir)/Release.Props" />
 </Project>
