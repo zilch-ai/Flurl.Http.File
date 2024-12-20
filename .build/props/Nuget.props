@@ -8,9 +8,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <!-- PackageId: Remove the .Nuget suffix if having -->
-    <PackageId>$(MSBuildProjectName.TrimEnd(".Package"))</PackageId>
-
     <!-- Version: Overwrite by Git tag version within Github workflow -->
     <Version>0.2.0</Version>
     <VersionPrefix></VersionPrefix>
