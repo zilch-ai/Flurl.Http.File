@@ -10,6 +10,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
 
     steps:
     # Prepare: Enlist + Restore + Build + Test
