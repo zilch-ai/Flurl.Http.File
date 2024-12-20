@@ -24,7 +24,20 @@ jobs:
       run: dotnet build -c Release --no-restore -p:Deterministic=true -p:ContinuousIntegrationBuild=true
     - name: Test
       run: dotnet test -c Release --no-build --verbosity normal
-    - name: Pack
+    - name: Pack Nuget package
       run: dotnet pack --c Release --no-build -p:PackageVersion=${GITHUB_REF#refs/tags/v} --output ./artifacts
-    - name: Publish
+    - name: Publish Nuget package
       run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+    - name: Publish Playground binaries
+      run: dotnet publish -c Release -o ./publish/Playground
+    - name: Zip Playground archive
+      run: |
+        mkdir -p ./artifacts
+        zip -j ./artifacts/Playground.zip ./publish/Playground/*
+    - name: Upload Release Assets
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./artifacts/Playground.zip
+        asset_name: Playground.zip
+        asset_content_type: application/zip
