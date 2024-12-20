@@ -12,6 +12,6 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <Import Project="$(BuildDir)/Nuget.Props" Condition="'$(ProjectType)' == 'Package'"/>
+  <Import Project="$(BuildDir)/props/Nuget.props" Condition="'$(ProjectType)' == 'Package'"/>
   
 </Project>

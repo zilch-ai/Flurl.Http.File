@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="$(BuildDir)/props/Nuget.props"/>
+
   <PropertyGroup Label="Nuget">
     <Description>lightweight .NET library for parsing and executing `.HTTP` or `.REST` files with HTTP request definitions.</Description>
     <PackageTags>http;request;spec</PackageTags>
