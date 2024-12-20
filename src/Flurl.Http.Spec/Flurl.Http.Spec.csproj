@@ -6,7 +6,7 @@
     <Description>lightweight .NET library for parsing and executing `.HTTP` or `.REST` files with HTTP request definitions.</Description>
     <PackageTags>http;request;spec</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageIcon>icon.png</PackageIcon>
+    <PackageIcon>zilch.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup Label="Nuget">
     <None Include="README.md" pack="true" PackagePath="." />
