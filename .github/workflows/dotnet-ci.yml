@@ -23,6 +23,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build -c Release -p:Deterministic=true -p:ContinuousIntegrationBuild=true --no-restore
+      run: dotnet build -c Release -p:Deterministic=true -p:ContinuousIntegrationBuild=true -v diag --no-restore
     - name: Test
       run: dotnet test -c Release -v normal --no-build
