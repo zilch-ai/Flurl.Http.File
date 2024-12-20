@@ -33,7 +33,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build -c Release -p:Deterministic=true -p:ContinuousIntegrationBuild=true --no-restore
+      run: dotnet build -c Release -p:Deterministic=true -p:ContinuousIntegrationBuild=true -v normal --no-restore
 
     # Test with Code Coverage
     - name: Test with code coverage

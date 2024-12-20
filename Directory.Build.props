@@ -59,8 +59,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <!-- BuildCops & Prebuilt per Project Type -->
-  <Import Project="$(BuildDir)/BuildCops.Props" />
-  <Import Project="$(BuildDir)/Prebuilt.Props" />
-  <Import Project="$(BuildDir)/Release.Props" />
+  <!-- Item/Property of BuildCops, Prebuilt, Release based on Project Type -->
+  <Import Project="$(BuildDir)/props/BuildCops.props" />
+  <Import Project="$(BuildDir)/props/Prebuilt.props" />
+  <Import Project="$(BuildDir)/props/Release.props" />
+
 </Project>
