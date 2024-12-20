@@ -10,11 +10,10 @@ The release notes provide a summary of the changes in each version of the Flurl.
 ### New Features
 - [ ] Support command variables in execution context: guid, random integer
 - [ ] Support environment variables in execution context: system environment variables, .env file
+- [ ] Playground CLI (package references and interactive demo)
 
 ### Enhancements
 - [ ] Code Quality: Unit Test Coverage >= 95%, Integration Test Coverage >= 90%
-- [ ] Dedicate project for Nuget package management (isolating from source code)
-- [ ] Playground CLI Tools (package references and interactive demo)
 - [ ] DIRS in README.md for project structure
 
 ### Bug Fixes
