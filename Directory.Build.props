@@ -59,14 +59,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <Target Name="List build Directory" BeforeTargets="BeforeBuild">
-    <ItemGroup>
-      <AllFiles Include="$(BuildDir)\**\*" />
-    </ItemGroup>
-    <Message Text="Project Directory Structure:" Importance="High" />
-    <Message Text="File: %(AllFiles.Identity)" Importance="High" />
-  </Target>
-
   <!-- Item/Property of BuildCops, Prebuilt, Release based on Project Type -->
   <Import Project="$(BuildDir)/props/BuildCops.props" />
   <Import Project="$(BuildDir)/props/Prebuilt.props" />
