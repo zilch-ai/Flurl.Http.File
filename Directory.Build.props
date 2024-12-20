@@ -66,10 +66,10 @@
     <Message Text="Project Directory Structure:" Importance="High" />
     <Message Text="File: %(AllFiles.Identity)" Importance="High" />
   </Target>
-  
+
   <!-- Item/Property of BuildCops, Prebuilt, Release based on Project Type -->
-  <Import Project="$(BuildDir)/props/BuildCops.Props" />
-  <Import Project="$(BuildDir)/props/Prebuilt.Props" />
-  <Import Project="$(BuildDir)/props/Release.Props" />
+  <Import Project="$(BuildDir)/props/BuildCops.props" />
+  <Import Project="$(BuildDir)/props/Prebuilt.props" />
+  <Import Project="$(BuildDir)/props/Release.props" />
 
 </Project>
