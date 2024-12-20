@@ -45,6 +45,7 @@
   <!-- Compiler and related debugging flags -->
   <PropertyGroup Label="Compile">
     <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
