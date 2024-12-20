@@ -51,14 +51,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <!-- Compiler and related debugging flags -->
-  <PropertyGroup Label="Compile">
-    <Deterministic>true</Deterministic>
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
   <!-- Item/Property of BuildCops, Prebuilt, Release based on Project Type -->
   <Import Project="$(BuildDir)/props/BuildCops.props" />
   <Import Project="$(BuildDir)/props/Prebuilt.props" />
