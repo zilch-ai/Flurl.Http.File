@@ -25,7 +25,7 @@ jobs:
     - name: Test
       run: dotnet test -c Release --no-build --verbosity normal
     - name: Pack Nuget package
-      run: dotnet pack --c Release --no-build -p:PackageVersion=${GITHUB_REF#refs/tags/v} --output ./artifacts
+      run: dotnet pack -c Release --no-build -p:PackageVersion=${GITHUB_REF#refs/tags/v} --output ./artifacts
     - name: Publish Nuget package
       run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
     - name: Publish Playground binaries
