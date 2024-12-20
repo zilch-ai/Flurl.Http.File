@@ -37,7 +37,7 @@ jobs:
 
     # Publish Playground CLI: Publish + Zip + Release
     - name: Publish Binaries
-      run: dotnet publish ./tool/Flurl.Http.Spec.Playground/Flurl.Http.Spec.Playground.csproj -c Release --o ./publish
+      run: dotnet publish ./tool/Flurl.Http.Spec.Playground/Flurl.Http.Spec.Playground.csproj -c Release -o ./publish
     - name: Archive Binaries, Zip
       run: zip -r ./artifacts/playground-${{ env.VERSION }}.zip ./publish
     - name: Release Binaries
