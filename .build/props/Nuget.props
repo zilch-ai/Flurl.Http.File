@@ -1,7 +1,10 @@
 <Project>
 
-  <!-- Flags to enable publishing package & document -->
+  <!-- Package authoring best practices: -->
+  <!-- https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
+
   <PropertyGroup>
+    <!-- Flags to enable publishing package & document -->
     <IsPackable>true</IsPackable>
     <EnablePackageValidation>true</EnablePackageValidation>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

@@ -95,8 +95,8 @@ Here are the full feature list of the Flurl.Http.Spec library:
 - Documentation
   - [x] README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT
   - [x] Release Notes, Change Log, Features Backlog and Roadmap
-  - [ ] <sup>vnext</sup> DIRS and Project Structure 
-  - [ ] <sup>vnext</sup> Playground and Interactive Demo Tools
+  - [ ] <sup>vnext</sup> DIRS and Project Structure
+  - [ ] <sup>vnext</sup> Playground CLI
   - [ ] Tutorials and Guides
   - [ ] API Reference
   - [ ] Examples and Use Cases

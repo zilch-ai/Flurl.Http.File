@@ -69,6 +69,10 @@ var spec = await HttpRequestFile.LoadFromFile(@"requests.http");
 var response = await spec.ExecuteAsync();
 ```
 
+## Directories
+
+Please refer to the [DIRS](DIRS.md) for the directory structure of the repository.
+
 ## Contributing
 
 Contributions are welcome! Please see our [CONTRIBUTING](CONTRIBUTING.md) for more details.

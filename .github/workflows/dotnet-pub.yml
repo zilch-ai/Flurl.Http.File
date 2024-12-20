@@ -7,7 +7,6 @@ on:
   push:
     tags:
       - 'v*'
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -26,10 +25,30 @@ jobs:
     - name: Test
       run: dotnet test -c Release -v normal --no-build
 
+    # Extract Release Version from Tag
+    - name: Extract version number
+      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
     # Publish NuGet package: Pack + Push
     - name: Pack Nuget package
-      run: dotnet pack -c Release --no-build -o ./artifacts -p:PackageVersion=${GITHUB_REF#refs/tags/v} 
+      run: dotnet pack -c Release --no-build -o ./artifacts -p:PackageVersion=${{ env.VERSION }}
     - name: Push Nuget package
       run: dotnet nuget push ./artifacts/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
-    # TODO: Publish Playground CLI: Publish + Zip + Release
+    # Publish Playground CLI: Publish + Zip + Release
+    - name: Publish Binaries
+      run: dotnet publish ./tool/Flurl.Http.Spec.Playground/Flurl.Http.Spec.Playground.csproj -c Release --o ./publish
+    - name: Archive Binaries, Zip
+      run: zip -r ./artifacts/playground-${{ env.VERSION }}.zip ./publish
+    - name: Release Binaries
+      uses: softprops/action-gh-release@v2
+      with:
+        name: Release ${{ env.VERSION }}
+        body: |
+          Release notes for version ${{ env.VERSION }}:
+          - Flurl.Http.Spec.Playground project built and packaged successfully.
+        files: |
+          ./artifacts/playground-${{ env.VERSION }}.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       
