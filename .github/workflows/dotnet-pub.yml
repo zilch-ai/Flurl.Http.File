@@ -40,18 +40,21 @@ jobs:
 
     # Publish Playground CLI: Publish + Zip + Release
     - name: Publish Binaries
-      run: dotnet publish ./tool/Flurl.Http.Spec.Playground/Flurl.Http.Spec.Playground.csproj -c Release -o ./publish
-    - name: Archive Binaries, Zip
-      run: zip -r ./artifacts/playground-${{ env.VERSION }}.zip ./publish
+      run: dotnet publish -c Release --self-contained
+    - name: Archive Binaries
+      run: |
+        zip -r ./artifacts/playground-win.x64-v${{ env.VERSION }}.zip ./publish/win-x64
+        tar -czvf ./artifacts/playground-linux.x64-v${{ env.VERSION }}.tar.gz -C ./publish linux-x64
+        tar -czvf ./artifacts/playground-osx-arm64-v${{ env.VERSION }}.tar.gz -C ./publish osx-arm64
     - name: Release Binaries
       uses: softprops/action-gh-release@v2
       with:
         name: Release ${{ env.VERSION }}
         body: |
           Release notes for version ${{ env.VERSION }}:
-          - Flurl.Http.Spec.Playground project built and packaged successfully.
+          - Playground CLI built and packaged successfully.
         files: |
-          ./artifacts/playground-${{ env.VERSION }}.zip
+          ./artifacts/playground-*.zip
+          ./artifacts/playground-*.tar.gz 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       
