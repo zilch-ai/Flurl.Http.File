@@ -1,13 +1,16 @@
 <Project>
 
+  <!-- Console CLI -->
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <IsPublishable>true</IsPublishable>
   </PropertyGroup>
 
+  <!-- Self-Contained & Single File -->
   <PropertyGroup>
     <PublishSelfContained>true</PublishSelfContained>
     <ValidateExecutableReferencesMatchSelfContained>true</ValidateExecutableReferencesMatchSelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
 
   <!-- RuntimeIdentifiers, OS Platform Specific -->
@@ -23,6 +26,26 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-arm64'">
     <PublishDir>$(Home)/publish/osx-arm64/$(MSBuildProjectName)</PublishDir>
+  </PropertyGroup>
+
+  <!-- Optimize Release Size -->
+  <PropertyGroup>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>    
+
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+  </PropertyGroup>
+
+  <!-- Optimize Loading & Executing Performance -->
+  <PropertyGroup>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <!-- TODO: <PublishAot>true</PublishAot> -->
   </PropertyGroup>
 
 </Project>
