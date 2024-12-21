@@ -28,15 +28,23 @@ jobs:
     - name: Test
       run: dotnet test -c Release -v normal --no-build
 
-    # Extract Release Version from Tag
+    # Extract Version Tag
     - name: Extract version number
-      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
-
+      run: |
+        echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+        if [[ "$VERSION" =~ -pre$ ]]; then
+          echo "PACKAGE_SOURCE=https://api.nuget.org/v3/index.json" >> $GITHUB_ENV
+        elif [[ "$VERSION" =~ -[a-zA-Z]+$ ]]; then
+          echo "PACKAGE_SOURCE=https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" >> $GITHUB_ENV
+        else
+          echo "PACKAGE_SOURCE=https://api.nuget.org/v3/index.json" >> $GITHUB_ENV
+        fi
+        
     # Publish NuGet package: Pack + Push
     - name: Pack Nuget package
       run: dotnet pack -c Release --no-build -o ./artifacts -p:PackageVersion=${{ env.VERSION }}
     - name: Push Nuget package
-      run: dotnet nuget push ./artifacts/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+      run: dotnet nuget push ./artifacts/*.nupkg -s ${{ env.PACKAGE_SOURCE }} -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
     # Publish Playground CLI: Publish + Zip + Release
     - name: Publish Binaries
@@ -46,9 +54,12 @@ jobs:
         dotnet publish -c Release -r osx-arm64
     - name: Archive Binaries
       run: |
-        zip -r ./artifacts/playground-win.x64-v${{ env.VERSION }}.zip ./publish/win-x64/Flurl.Http.Spec.Playground
-        tar -czvf ./artifacts/playground-linux.x64-v${{ env.VERSION }}.tar.gz -C ./publish linux-x64/Flurl.Http.Spec.Playground
-        tar -czvf ./artifacts/playground-osx-arm64-v${{ env.VERSION }}.tar.gz -C ./publish osx-arm64/Flurl.Http.Spec.Playground
+        original_dir=$(pwd)
+        cd ./publish/win-x64/Flurl.Http.Spec.Playground
+        zip -r "$original_dir/artifacts/playground-win.x64-v${{ env.VERSION }}.zip" *
+        cd "$original_dir"
+        tar -czvf ./artifacts/playground-linux.x64-v${{ env.VERSION }}.tar.gz -C ./publish/linux-x64/Flurl.Http.Spec.Playground .
+        tar -czvf ./artifacts/playground-osx-arm64-v${{ env.VERSION }}.tar.gz -C ./publish/osx-arm64/Flurl.Http.Spec.Playground .
     - name: Release Binaries
       uses: softprops/action-gh-release@v2
       with:
