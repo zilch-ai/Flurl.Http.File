@@ -56,5 +56,6 @@ BenchmarkDotNet.Artifacts
 packages
 coverage
 
-# Build artifacts
+# MSBuild Outputs
 artifacts
+publish

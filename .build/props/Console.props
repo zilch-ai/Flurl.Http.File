@@ -2,22 +2,27 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <IsPublishable>true</IsPublishable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishSelfContained>true</PublishSelfContained>
+    <ValidateExecutableReferencesMatchSelfContained>true</ValidateExecutableReferencesMatchSelfContained>
   </PropertyGroup>
 
   <!-- RuntimeIdentifiers, OS Platform Specific -->
   <!-- https://learn.microsoft.com/en-us/dotnet/core/rid-catalog -->
   <PropertyGroup>
-    <IsPublishable>true</IsPublishable>
     <RuntimeIdentifiers>win-x64;linux-x64;osx-arm64</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
-    <PublishOutputPath>$(SolutionDir)\publish\win-x64\</PublishOutputPath>
+    <PublishDir>$(Home)/publish/win-x64/$(MSBuildProjectName)</PublishDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64'">
-    <PublishOutputPath>$(SolutionDir)\publish\linux-x64\</PublishOutputPath>
+    <PublishDir>$(Home)/publish/linux-x64/$(MSBuildProjectName)</PublishDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-arm64'">
-    <PublishOutputPath>$(SolutionDir)\publish\osx-arm64\</PublishOutputPath>
+    <PublishDir>$(Home)/publish/osx-arm64/$(MSBuildProjectName)</PublishDir>
   </PropertyGroup>
 
 </Project>
